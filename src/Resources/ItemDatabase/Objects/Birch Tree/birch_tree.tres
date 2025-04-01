@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WorldTreeData" load_steps=2 format=3 uid="uid://2wik08nftqff"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldObjects/DamagableObject/Tree/world_tree_data.gd" id="1_okt3d"]
+
+[resource]
+script = ExtResource("1_okt3d")
+grow_state_atlas_coords_l = Array[PackedScene]([])
+grow_state_atlas_coords_n = Array[PackedScene]([])
+name = "Birch Tree"

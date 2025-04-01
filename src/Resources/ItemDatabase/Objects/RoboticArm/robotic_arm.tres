@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="RoboticArmData" load_steps=8 format=3 uid="uid://ce833q5e6qvul"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack_range.gd" id="1_fc01h"]
+[ext_resource type="Script" path="res://Resources/ItemDatabase/Objects/RoboticArm/robotic_arm_data.gd" id="2_t0mg3"]
+[ext_resource type="PackedScene" uid="uid://ddrs15tv52p4y" path="res://Resources/ItemDatabase/Objects/RoboticArm/robotic_arm.tscn" id="2_t1a54"]
+[ext_resource type="Resource" uid="uid://bqm7cs8xbmyjw" path="res://Resources/ItemDatabase/Items/robotic_arm.tres" id="2_tj7bw"]
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack.gd" id="3_dp8s8"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/tool_damage.gd" id="4_p8eha"]
+
+[sub_resource type="Resource" id="Resource_vpui4"]
+script = ExtResource("1_fc01h")
+item = ExtResource("2_tj7bw")
+min_count = 1
+max_count = 1
+
+[resource]
+script = ExtResource("2_t0mg3")
+speed = 1
+direction = Vector2i(0, 1)
+slots_count = 1
+slots = Array[ExtResource("3_dp8s8")]([])
+open_in_inventory = true
+scene = ExtResource("2_t1a54")
+fist_break_time = 0.5
+tools_break_time = Array[ExtResource("4_p8eha")]([])
+max_health = 50
+drop_items = Array[ExtResource("1_fc01h")]([SubResource("Resource_vpui4")])
+_health = 0
+broked = false
+name = "Robotic Arm"
+grid_size = Vector2i(1, 1)
+can_rotate = true
+rotation = 0

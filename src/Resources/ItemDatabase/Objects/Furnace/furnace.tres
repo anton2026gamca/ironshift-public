@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="FurnaceData" load_steps=11 format=3 uid="uid://dpgrpqvk0eher"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack_range.gd" id="1_fgrcq"]
+[ext_resource type="Resource" uid="uid://d1lefyfyjaysx" path="res://Resources/ItemDatabase/Items/furnace.tres" id="2_0r0uf"]
+[ext_resource type="PackedScene" uid="uid://c4rfpddd8wmpt" path="res://Resources/ItemDatabase/Objects/Furnace/furnace.tscn" id="2_6xpvf"]
+[ext_resource type="PackedScene" uid="uid://co0irk735q1jr" path="res://Resources/ItemDatabase/Objects/Furnace/furnace_menu.tscn" id="3_qrlli"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/tool_damage.gd" id="4_4vyq0"]
+[ext_resource type="Script" path="res://Resources/ItemDatabase/Objects/Furnace/furnace_data.gd" id="5_urmgx"]
+[ext_resource type="Resource" uid="uid://qmuj4px8p8jn" path="res://Resources/ItemDatabase/Items/pickaxe.tres" id="5_w4hoj"]
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack.gd" id="6_3bqjg"]
+
+[sub_resource type="Resource" id="Resource_c076k"]
+script = ExtResource("1_fgrcq")
+item = ExtResource("2_0r0uf")
+min_count = 1
+max_count = 1
+
+[sub_resource type="Resource" id="Resource_1qam4"]
+script = ExtResource("4_4vyq0")
+tool = ExtResource("5_w4hoj")
+value = 1.0
+
+[resource]
+script = ExtResource("5_urmgx")
+slots_count = 3
+slots = Array[ExtResource("6_3bqjg")]([])
+on_click_menu = ExtResource("3_qrlli")
+open_in_inventory = true
+scene = ExtResource("2_6xpvf")
+fist_break_time = 2.0
+tools_break_time = Array[ExtResource("4_4vyq0")]([SubResource("Resource_1qam4")])
+max_health = 100
+drop_items = Array[ExtResource("1_fgrcq")]([SubResource("Resource_c076k")])
+_health = 0
+broked = false
+name = "Furnace"
+grid_size = Vector2i(2, 2)
+can_rotate = false
+rotation = 0

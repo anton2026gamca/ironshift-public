@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ToolData" load_steps=4 format=3 uid="uid://byg6mles1no4k"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/tool_data.gd" id="1_048gu"]
+[ext_resource type="Texture2D" uid="uid://bvbqfo44ejin2" path="res://Sprites/tools_and_resources.png" id="2_bijkr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ofpc"]
+atlas = ExtResource("2_bijkr")
+region = Rect2(188, 8, 36, 36)
+
+[resource]
+script = ExtResource("1_048gu")
+attack_cooldown = 0.5
+cooldown_timer = 0.0
+max_health = 60
+health = 0
+name = "Axe"
+texture = SubResource("AtlasTexture_4ofpc")
+stack_size = 1

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryPlaceableObjectData" load_steps=3 format=3 uid="uid://bjtdq4bjvbyp2"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/inventory_placeable_object_data.gd" id="1_bihxk"]
+[ext_resource type="Texture2D" uid="uid://csmjb56mlg1rt" path="res://Sprites/objects/wooden_box.png" id="2_poc4r"]
+
+[resource]
+script = ExtResource("1_bihxk")
+object_to_place_id = 6
+name = "Wooden Chest"
+texture = ExtResource("2_poc4r")
+stack_size = 50

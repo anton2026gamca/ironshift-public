@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="MineableResourceTileData" load_steps=12 format=3 uid="uid://dul5kggt8yig4"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack_range.gd" id="1_4j35a"]
+[ext_resource type="Resource" uid="uid://d1we06pqkdk23" path="res://Resources/ItemDatabase/Items/stone.tres" id="2_0mydq"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldTiles/mineable_resource_tile_data.gd" id="2_d66hn"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/tool_damage.gd" id="3_2h0o3"]
+[ext_resource type="Resource" uid="uid://bkuhjgtgwpayt" path="res://Resources/ItemDatabase/Items/coal.tres" id="3_hic5b"]
+[ext_resource type="Texture2D" uid="uid://cgx7c3berexa6" path="res://Sprites/tiles/coal_ore.png" id="4_7dud3"]
+[ext_resource type="Resource" uid="uid://qmuj4px8p8jn" path="res://Resources/ItemDatabase/Items/pickaxe.tres" id="4_k4wun"]
+
+[sub_resource type="Resource" id="Resource_bkq6x"]
+script = ExtResource("1_4j35a")
+item = ExtResource("2_0mydq")
+min_count = 2
+max_count = 4
+
+[sub_resource type="Resource" id="Resource_qx620"]
+script = ExtResource("1_4j35a")
+item = ExtResource("3_hic5b")
+min_count = 1
+max_count = 2
+
+[sub_resource type="Resource" id="Resource_ascim"]
+script = ExtResource("1_4j35a")
+item = ExtResource("3_hic5b")
+min_count = 25
+max_count = 35
+
+[sub_resource type="Resource" id="Resource_jm6dh"]
+script = ExtResource("3_2h0o3")
+tool = ExtResource("4_k4wun")
+value = 1.5
+
+[resource]
+script = ExtResource("2_d66hn")
+resource = SubResource("Resource_ascim")
+drill_mine_time = 3.0
+remaining = 0
+tools_break_time = Array[ExtResource("3_2h0o3")]([SubResource("Resource_jm6dh")])
+drop_itmes = Array[ExtResource("1_4j35a")]([SubResource("Resource_bkq6x"), SubResource("Resource_qx620")])
+name = "Coal Ore"
+tileset_atlas_id = 5
+tileset_texture = ExtResource("4_7dud3")
+unique_color = Color(1, 1, 0, 1)

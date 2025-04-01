@@ -1,0 +1,152 @@
+[gd_scene load_steps=8 format=3 uid="uid://mimnbol0o5no"]
+
+[ext_resource type="Texture2D" uid="uid://b5x0qoilyk45r" path="res://Sprites/stranded-factory_pack/Quarries/Basic Quarry - Modified.png" id="1_suesi"]
+[ext_resource type="Script" path="res://Resources/ItemDatabase/Objects/Drill/drill_menu.gd" id="1_uw58n"]
+[ext_resource type="FontFile" uid="uid://bunmugpxj5gxe" path="res://font.ttf" id="3_wn2mi"]
+[ext_resource type="PackedScene" uid="uid://dd7yt4j8a5qfv" path="res://Scenes/UI/health_bar.tscn" id="4_6pbjm"]
+[ext_resource type="PackedScene" uid="uid://xbb2psgt2l54" path="res://Scenes/UI/Inventory/inventory_slot.tscn" id="5_i7qmo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kygxq"]
+atlas = ExtResource("1_suesi")
+region = Rect2(688, 16, 16, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_23s48"]
+font = ExtResource("3_wn2mi")
+
+[node name="DrillMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uw58n")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -100.0
+offset_right = 32.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 4
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(16, 32)
+render_target_update_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 8.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_kygxq")
+
+[node name="MineableResources" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -12.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="RowTemplate" type="Control" parent="MineableResources"]
+visible = false
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Resource" type="TextureRect" parent="MineableResources/RowTemplate"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -18.0
+offset_right = 36.0
+offset_bottom = 18.0
+grow_vertical = 2
+pivot_offset = Vector2(18, 18)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Count" type="Label" parent="MineableResources/RowTemplate"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = -7.5
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_23s48")
+
+[node name="Mining" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 60.0
+offset_right = 125.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fuel" parent="Mining" instance=ExtResource("5_i7qmo")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="Progress" parent="Mining" instance=ExtResource("4_6pbjm")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0
+anchor_right = 1.0
+offset_left = 45.0
+offset_top = -6.5
+offset_right = -45.0
+offset_bottom = 5.5
+max_health = 100.0
+
+[node name="Resource" type="TextureRect" parent="Mining"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -18.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2

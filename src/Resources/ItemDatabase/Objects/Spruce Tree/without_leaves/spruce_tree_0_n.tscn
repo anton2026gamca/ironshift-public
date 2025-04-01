@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://chu88km02gcpu"]
+
+[ext_resource type="Texture2D" uid="uid://cggkgabeqwsmp" path="res://Sprites/trees/tree-spruce.png" id="1_j5l8y"]
+[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="1_jkimb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_62x5q"]
+shader = ExtResource("1_jkimb")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 0
+shader_parameter/transparency = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4jcx"]
+atlas = ExtResource("1_j5l8y")
+region = Rect2(0, 96, 64, 96)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0lqi2"]
+radius = 6.0
+
+[node name="SpruceTree0L" type="Sprite2D"]
+material = SubResource("ShaderMaterial_62x5q")
+texture = SubResource("AtlasTexture_v4jcx")
+offset = Vector2(0, -42)
+
+[node name="MouseSelect" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseSelect"]
+shape = SubResource("CircleShape2D_0lqi2")

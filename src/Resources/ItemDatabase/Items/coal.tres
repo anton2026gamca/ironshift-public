@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FuelItemData" load_steps=4 format=3 uid="uid://bkuhjgtgwpayt"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/fuel_item_data.gd" id="1_yylvj"]
+[ext_resource type="Texture2D" uid="uid://bvbqfo44ejin2" path="res://Sprites/tools_and_resources.png" id="2_wenre"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0ro1"]
+atlas = ExtResource("2_wenre")
+region = Rect2(296, 44, 36, 36)
+
+[resource]
+script = ExtResource("1_yylvj")
+duration = 7.0
+name = "Coal"
+texture = SubResource("AtlasTexture_f0ro1")
+stack_size = 50

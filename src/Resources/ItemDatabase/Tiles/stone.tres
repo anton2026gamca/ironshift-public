@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="WorldDamagableTileData" load_steps=9 format=3 uid="uid://dyxrvy56o024t"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack_range.gd" id="1_bei8q"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldTiles/world_damagable_tile_data.gd" id="1_cund5"]
+[ext_resource type="Resource" uid="uid://d1we06pqkdk23" path="res://Resources/ItemDatabase/Items/stone.tres" id="2_n06wj"]
+[ext_resource type="Texture2D" uid="uid://b4re5sb32a0vv" path="res://Sprites/tiles/stone_v2.png" id="2_sr1eo"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/tool_damage.gd" id="3_ypn73"]
+[ext_resource type="Resource" uid="uid://qmuj4px8p8jn" path="res://Resources/ItemDatabase/Items/pickaxe.tres" id="4_ojgtd"]
+
+[sub_resource type="Resource" id="Resource_cdubr"]
+script = ExtResource("1_bei8q")
+item = ExtResource("2_n06wj")
+min_count = 2
+max_count = 4
+
+[sub_resource type="Resource" id="Resource_adip0"]
+script = ExtResource("3_ypn73")
+tool = ExtResource("4_ojgtd")
+value = 1.7
+
+[resource]
+script = ExtResource("1_cund5")
+tools_break_time = Array[ExtResource("3_ypn73")]([SubResource("Resource_adip0")])
+drop_itmes = Array[ExtResource("1_bei8q")]([SubResource("Resource_cdubr")])
+name = "Stone"
+tileset_atlas_id = 3
+tileset_texture = ExtResource("2_sr1eo")
+unique_color = Color(1, 1, 1, 1)

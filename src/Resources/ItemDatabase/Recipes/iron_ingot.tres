@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=8 format=3 uid="uid://cja4f76vtelrn"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack.gd" id="1_7g0r6"]
+[ext_resource type="Resource" uid="uid://cge44vryw7s83" path="res://Resources/ItemDatabase/Items/raw_iron.tres" id="2_grxle"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/CraftingReceipts/crafting_recipe.gd" id="2_pgsn6"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/inventory_item_data.gd" id="2_v3h30"]
+[ext_resource type="Resource" uid="uid://nr8uvh4g3o04" path="res://Resources/ItemDatabase/Items/iron_ingot.tres" id="3_svh64"]
+
+[sub_resource type="Resource" id="Resource_wkluo"]
+script = ExtResource("1_7g0r6")
+item = ExtResource("2_grxle")
+count = 1
+filter = Array[ExtResource("2_v3h30")]([])
+
+[sub_resource type="Resource" id="Resource_ka7vk"]
+script = ExtResource("1_7g0r6")
+item = ExtResource("3_svh64")
+count = 1
+filter = Array[ExtResource("2_v3h30")]([])
+
+[resource]
+script = ExtResource("2_pgsn6")
+input = Array[ExtResource("1_7g0r6")]([SubResource("Resource_wkluo")])
+output = SubResource("Resource_ka7vk")
+craft_time = 2.0
+made_in = 1

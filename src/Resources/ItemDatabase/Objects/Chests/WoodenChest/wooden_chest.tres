@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="StorageObjectData" load_steps=11 format=3 uid="uid://dtoc6qj51m6pb"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack_range.gd" id="1_haji5"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldObjects/DamagableObject/UIMenuObject/StorageObject/storage_object_data.gd" id="2_7f6n3"]
+[ext_resource type="PackedScene" uid="uid://d00syneyrv4jd" path="res://Resources/ItemDatabase/Objects/Chests/chest_menu.tscn" id="2_augtc"]
+[ext_resource type="Resource" uid="uid://bjtdq4bjvbyp2" path="res://Resources/ItemDatabase/Items/wooden_chest.tres" id="2_vi6r3"]
+[ext_resource type="PackedScene" uid="uid://bxbkmqdbmg6vu" path="res://Resources/ItemDatabase/Objects/Chests/WoodenChest/wooden_chest.tscn" id="3_8clc3"]
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack.gd" id="3_rmqy3"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/tool_damage.gd" id="4_ee36v"]
+[ext_resource type="Resource" uid="uid://byg6mles1no4k" path="res://Resources/ItemDatabase/Items/axe.tres" id="6_jwa0a"]
+
+[sub_resource type="Resource" id="Resource_y18qa"]
+script = ExtResource("1_haji5")
+item = ExtResource("2_vi6r3")
+min_count = 1
+max_count = 1
+
+[sub_resource type="Resource" id="Resource_g16jo"]
+script = ExtResource("4_ee36v")
+tool = ExtResource("6_jwa0a")
+value = 0.5
+
+[resource]
+script = ExtResource("2_7f6n3")
+slots_count = 16
+slots = Array[ExtResource("3_rmqy3")]([])
+on_click_menu = ExtResource("2_augtc")
+open_in_inventory = true
+scene = ExtResource("3_8clc3")
+fist_break_time = 1.0
+tools_break_time = Array[ExtResource("4_ee36v")]([SubResource("Resource_g16jo")])
+max_health = 100
+drop_items = Array[ExtResource("1_haji5")]([SubResource("Resource_y18qa")])
+_health = 0
+broked = false
+name = "Wooden Chest"
+grid_size = Vector2i(1, 1)
+can_rotate = false
+rotation = 0

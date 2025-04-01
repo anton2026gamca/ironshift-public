@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryItemData" load_steps=4 format=3 uid="uid://kcxncti7ckm5"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/inventory_item_data.gd" id="1_hoenh"]
+[ext_resource type="Texture2D" uid="uid://bvbqfo44ejin2" path="res://Sprites/tools_and_resources.png" id="2_0m8y2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb6yr"]
+atlas = ExtResource("2_0m8y2")
+region = Rect2(260, 188, 36, 36)
+
+[resource]
+script = ExtResource("1_hoenh")
+name = "Dirt"
+texture = SubResource("AtlasTexture_rb6yr")
+stack_size = 50

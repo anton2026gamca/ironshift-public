@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4rfpddd8wmpt"]
+
+[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="1_r1ja7"]
+[ext_resource type="Texture2D" uid="uid://dey8l4xdl42cr" path="res://Sprites/objects/furnace.png" id="2_qtoor"]
+[ext_resource type="Script" path="res://Scripts/fading_object.gd" id="3_6f1tl"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldObjects/DamagableObject/UIMenuObject/Furnace/furnace.gd" id="3_snmuc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r2v6c"]
+shader = ExtResource("1_r1ja7")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 0
+shader_parameter/transparency = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jtlv"]
+atlas = ExtResource("2_qtoor")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ip23"]
+size = Vector2(26, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf0y3"]
+size = Vector2(28, 27)
+
+[node name="Furnace" type="Sprite2D"]
+material = SubResource("ShaderMaterial_r2v6c")
+texture = SubResource("AtlasTexture_1jtlv")
+offset = Vector2(0, -12)
+script = ExtResource("3_snmuc")
+
+[node name="HitBox" type="StaticBody2D" parent="."]
+position = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 12.5)
+shape = SubResource("RectangleShape2D_3ip23")
+
+[node name="MouseSelect" type="Area2D" parent="."]
+position = Vector2(0, -12)
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MouseSelect"]
+visible = false
+polygon = PackedVector2Array(14, 17, -14, 17, -14, -4, -6, -23, 6, -23, 14, -4)
+
+[node name="FadingObject" type="Area2D" parent="."]
+position = Vector2(0, -12)
+script = ExtResource("3_6f1tl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FadingObject"]
+visible = false
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_rf0y3")

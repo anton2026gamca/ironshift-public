@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="DrillData" load_steps=9 format=3 uid="uid://sllow4wt6581"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack_range.gd" id="1_877yj"]
+[ext_resource type="Script" path="res://Resources/ItemDatabase/Objects/Drill/drill_data.gd" id="2_dnbp5"]
+[ext_resource type="Resource" uid="uid://dem7daefcoig7" path="res://Resources/ItemDatabase/Items/drill.tres" id="2_n3wti"]
+[ext_resource type="PackedScene" uid="uid://c65344mgrqmda" path="res://Resources/ItemDatabase/Objects/Drill/drill.tscn" id="2_sp7eu"]
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack.gd" id="3_h7l7i"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/tool_damage.gd" id="3_ql6ca"]
+[ext_resource type="PackedScene" uid="uid://mimnbol0o5no" path="res://Resources/ItemDatabase/Objects/Drill/drill_menu.tscn" id="4_1bd4p"]
+
+[sub_resource type="Resource" id="Resource_ix6h8"]
+script = ExtResource("1_877yj")
+item = ExtResource("2_n3wti")
+min_count = 1
+max_count = 1
+
+[resource]
+script = ExtResource("2_dnbp5")
+output_direction = Vector2i(0, 1)
+mineable_resources = Array[ExtResource("3_h7l7i")]([])
+slots_count = 0
+slots = Array[ExtResource("3_h7l7i")]([])
+on_click_menu = ExtResource("4_1bd4p")
+open_in_inventory = true
+scene = ExtResource("2_sp7eu")
+fist_break_time = 3.0
+tools_break_time = Array[ExtResource("3_ql6ca")]([])
+max_health = 100
+drop_items = Array[ExtResource("1_877yj")]([SubResource("Resource_ix6h8")])
+_health = 0
+broked = false
+name = ""
+grid_size = Vector2i(1, 1)
+can_rotate = true
+rotation = 0

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=8 format=3 uid="uid://cykaif86p4j6d"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack.gd" id="1_4ij70"]
+[ext_resource type="Resource" uid="uid://d1we06pqkdk23" path="res://Resources/ItemDatabase/Items/stone.tres" id="2_bb8yh"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/inventory_item_data.gd" id="2_bytxf"]
+[ext_resource type="Resource" uid="uid://dmilo1ngb3lqv" path="res://Resources/ItemDatabase/Items/stone_tile.tres" id="3_lhn7e"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/CraftingReceipts/crafting_recipe.gd" id="4_6rlgp"]
+
+[sub_resource type="Resource" id="Resource_lhji6"]
+script = ExtResource("1_4ij70")
+item = ExtResource("2_bb8yh")
+count = 4
+filter = Array[ExtResource("2_bytxf")]([])
+
+[sub_resource type="Resource" id="Resource_1q4sx"]
+script = ExtResource("1_4ij70")
+item = ExtResource("3_lhn7e")
+count = 1
+filter = Array[ExtResource("2_bytxf")]([])
+
+[resource]
+script = ExtResource("4_6rlgp")
+input = Array[ExtResource("1_4ij70")]([SubResource("Resource_lhji6")])
+output = SubResource("Resource_1q4sx")
+craft_time = 0.5
+made_in = 0

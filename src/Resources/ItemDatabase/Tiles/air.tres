@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WorldTileData" load_steps=2 format=3 uid="uid://bww0ayghdgcr"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldTiles/world_tile_data.gd" id="1_i31du"]
+
+[resource]
+script = ExtResource("1_i31du")
+name = "Air"
+tileset_atlas_id = 0
+unique_color = Color(0, 0, 0, 0)

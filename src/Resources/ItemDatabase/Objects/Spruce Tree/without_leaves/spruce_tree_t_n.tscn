@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://74hdscapak6j"]
+
+[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="1_5laqt"]
+[ext_resource type="Texture2D" uid="uid://cggkgabeqwsmp" path="res://Sprites/trees/tree-spruce.png" id="1_d87dq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nww5n"]
+shader = ExtResource("1_5laqt")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 0
+shader_parameter/transparency = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4jcx"]
+atlas = ExtResource("1_d87dq")
+region = Rect2(0, 192, 64, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0hto"]
+size = Vector2(13, 6)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_47oa7"]
+height = 22.0
+
+[node name="SpruceTree0L" type="Sprite2D"]
+material = SubResource("ShaderMaterial_nww5n")
+texture = SubResource("AtlasTexture_v4jcx")
+offset = Vector2(0, -42)
+
+[node name="HitBox" type="StaticBody2D" parent="."]
+collision_layer = 9
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_f0hto")
+
+[node name="MouseSelect" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseSelect"]
+position = Vector2(1, -4)
+shape = SubResource("CapsuleShape2D_47oa7")

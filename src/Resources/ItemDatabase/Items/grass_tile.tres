@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryPlaceableTileData" load_steps=3 format=3 uid="uid://bggxrs8shkfv3"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/inventory_placeable_tile_data.gd" id="1_j7ttl"]
+[ext_resource type="Texture2D" uid="uid://co6ld2d3ag5kg" path="res://Sprites/tiles/grass_tile_icon.png" id="2_j1mrf"]
+
+[resource]
+script = ExtResource("1_j7ttl")
+tile_to_place = 1
+name = "Grass Tile"
+texture = ExtResource("2_j1mrf")
+stack_size = 50

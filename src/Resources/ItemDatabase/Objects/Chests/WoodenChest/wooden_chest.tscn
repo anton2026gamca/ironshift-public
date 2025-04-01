@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxbkmqdbmg6vu"]
+
+[ext_resource type="Texture2D" uid="uid://csmjb56mlg1rt" path="res://Sprites/objects/wooden_box.png" id="1_eov7b"]
+[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="1_u5ksp"]
+[ext_resource type="Script" path="res://Resources/ItemDatabase/Objects/Chests/world_object_instance.gd" id="3_o00mj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ffpx5"]
+shader = ExtResource("1_u5ksp")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 0
+shader_parameter/transparency = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88vhy"]
+size = Vector2(16, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khor1"]
+size = Vector2(16, 22)
+
+[node name="WoodenChest" type="Sprite2D"]
+material = SubResource("ShaderMaterial_ffpx5")
+texture = ExtResource("1_eov7b")
+offset = Vector2(0, -9)
+script = ExtResource("3_o00mj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_88vhy")
+
+[node name="MouseSelect" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseSelect"]
+visible = false
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_khor1")

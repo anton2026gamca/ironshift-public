@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WorldTileData" load_steps=3 format=3 uid="uid://d2ucebc3rb027"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldTiles/world_tile_data.gd" id="1_fkv1p"]
+[ext_resource type="Texture2D" uid="uid://cnvgevx8jb15k" path="res://Sprites/tiles/water_v2.png" id="2_dbr3x"]
+
+[resource]
+script = ExtResource("1_fkv1p")
+name = "Water"
+tileset_atlas_id = 2
+tileset_texture = ExtResource("2_dbr3x")
+unique_color = Color(0, 0, 1, 1)

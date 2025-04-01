@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="MineableResourceTileData" load_steps=12 format=3 uid="uid://bwddd0m7cscdf"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack_range.gd" id="1_excsv"]
+[ext_resource type="Texture2D" uid="uid://bi1k86nd6v1ss" path="res://Sprites/tiles/iron_ore.png" id="2_82kdt"]
+[ext_resource type="Resource" uid="uid://d1we06pqkdk23" path="res://Resources/ItemDatabase/Items/stone.tres" id="2_tdoxd"]
+[ext_resource type="Resource" uid="uid://cge44vryw7s83" path="res://Resources/ItemDatabase/Items/raw_iron.tres" id="3_j3eim"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/tool_damage.gd" id="3_k8ep2"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldTiles/mineable_resource_tile_data.gd" id="4_3piv0"]
+[ext_resource type="Resource" uid="uid://qmuj4px8p8jn" path="res://Resources/ItemDatabase/Items/pickaxe.tres" id="4_81btj"]
+
+[sub_resource type="Resource" id="Resource_pxxyt"]
+script = ExtResource("1_excsv")
+item = ExtResource("2_tdoxd")
+min_count = 2
+max_count = 4
+
+[sub_resource type="Resource" id="Resource_nlcup"]
+script = ExtResource("1_excsv")
+item = ExtResource("3_j3eim")
+min_count = 1
+max_count = 2
+
+[sub_resource type="Resource" id="Resource_rwa0r"]
+script = ExtResource("1_excsv")
+item = ExtResource("3_j3eim")
+min_count = 20
+max_count = 30
+
+[sub_resource type="Resource" id="Resource_d0vr8"]
+script = ExtResource("3_k8ep2")
+tool = ExtResource("4_81btj")
+value = 1.5
+
+[resource]
+script = ExtResource("4_3piv0")
+resource = SubResource("Resource_rwa0r")
+drill_mine_time = 5.0
+remaining = 0
+tools_break_time = Array[ExtResource("3_k8ep2")]([SubResource("Resource_d0vr8")])
+drop_itmes = Array[ExtResource("1_excsv")]([SubResource("Resource_pxxyt"), SubResource("Resource_nlcup")])
+name = "Iron Ore"
+tileset_atlas_id = 4
+tileset_texture = ExtResource("2_82kdt")
+unique_color = Color(1, 0, 0, 1)

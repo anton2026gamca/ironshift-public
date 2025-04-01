@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn4orgfn3bbt3"]
+
+[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="1_f7mo3"]
+[ext_resource type="Script" path="res://Resources/ItemDatabase/Objects/Chests/world_object_instance.gd" id="2_nmdux"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wxgem"]
+shader = ExtResource("1_f7mo3")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 0
+shader_parameter/transparency = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpqay"]
+size = Vector2(16, 16)
+
+[node name="PickupableObject" type="Sprite2D"]
+material = SubResource("ShaderMaterial_wxgem")
+position = Vector2(0, -3)
+scale = Vector2(0.5, 0.5)
+flip_v = true
+script = ExtResource("2_nmdux")
+
+[node name="PickupArea" type="Area2D" parent="." groups=["pickupable_objects"]]
+scale = Vector2(2, 2)
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+shape = SubResource("RectangleShape2D_qpqay")

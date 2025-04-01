@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryItemData" load_steps=4 format=3 uid="uid://cge44vryw7s83"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/inventory_item_data.gd" id="1_x4ka0"]
+[ext_resource type="Texture2D" uid="uid://bvbqfo44ejin2" path="res://Sprites/tools_and_resources.png" id="2_v2c5t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0gp8"]
+atlas = ExtResource("2_v2c5t")
+region = Rect2(332, 224, 36, 36)
+
+[resource]
+script = ExtResource("1_x4ka0")
+name = "Raw Iron"
+texture = SubResource("AtlasTexture_q0gp8")
+stack_size = 100

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryPlaceableObjectData" load_steps=3 format=3 uid="uid://bqm7cs8xbmyjw"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/inventory_placeable_object_data.gd" id="1_v1kmv"]
+[ext_resource type="Texture2D" uid="uid://ci7npn1nu21xr" path="res://Sprites/objects/robotic_arm_icon.png" id="2_m0yar"]
+
+[resource]
+script = ExtResource("1_v1kmv")
+object_to_place_id = 8
+name = "Robotic Arm"
+texture = ExtResource("2_m0yar")
+stack_size = 50

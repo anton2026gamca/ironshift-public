@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="WorldTreeData" load_steps=6 format=3 uid="uid://8sfm4gl0k0bt"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack_range.gd" id="1_6lu2k"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldObjects/DamagableObject/Tree/death_scene_override.gd" id="1_iu1xk"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldObjects/DamagableObject/Tree/world_tree_data.gd" id="2_kruud"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/tool_damage.gd" id="2_rjva7"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldObjects/DamagableObject/Tree/drop_items_override.gd" id="3_dhjwa"]
+
+[resource]
+script = ExtResource("2_kruud")
+grow_state_atlas_coords_l = Array[PackedScene]([])
+grow_state_atlas_coords_n = Array[PackedScene]([])
+drop_items_overrides = Array[ExtResource("3_dhjwa")]([])
+death_scene_overrides = Array[ExtResource("1_iu1xk")]([])
+has_leaves = true
+grow_state = 0
+tools_damage = Array[ExtResource("2_rjva7")]([])
+max_health = 0
+drop_items = Array[ExtResource("1_6lu2k")]([])
+_health = 0
+broked = false
+name = "Oak Tree"

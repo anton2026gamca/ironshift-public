@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ToolData" load_steps=4 format=3 uid="uid://qmuj4px8p8jn"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/tool_data.gd" id="1_f2ww2"]
+[ext_resource type="Texture2D" uid="uid://bvbqfo44ejin2" path="res://Sprites/tools_and_resources.png" id="2_g6t4k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugnh0"]
+atlas = ExtResource("2_g6t4k")
+region = Rect2(152, 8, 36, 36)
+
+[resource]
+script = ExtResource("1_f2ww2")
+attack_cooldown = 0.5
+cooldown_timer = 0.0
+max_health = 60
+health = 0
+name = "Pickaxe"
+texture = SubResource("AtlasTexture_ugnh0")
+stack_size = 1

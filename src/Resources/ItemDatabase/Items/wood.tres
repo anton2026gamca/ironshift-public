@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FuelItemData" load_steps=4 format=3 uid="uid://ng76s4sp8uln"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/fuel_item_data.gd" id="1_bpw5t"]
+[ext_resource type="Texture2D" uid="uid://bvbqfo44ejin2" path="res://Sprites/tools_and_resources.png" id="2_ksxty"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls5l3"]
+atlas = ExtResource("2_ksxty")
+region = Rect2(8, 116, 36, 36)
+
+[resource]
+script = ExtResource("1_bpw5t")
+duration = 3.0
+name = "Wood"
+texture = SubResource("AtlasTexture_ls5l3")
+stack_size = 50

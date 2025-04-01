@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="InventoryPlaceableObjectData" load_steps=4 format=3 uid="uid://d1lefyfyjaysx"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/inventory_placeable_object_data.gd" id="1_uhvfv"]
+[ext_resource type="Texture2D" uid="uid://dey8l4xdl42cr" path="res://Sprites/objects/furnace.png" id="3_uqpdp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl3b7"]
+atlas = ExtResource("3_uqpdp")
+region = Rect2(32, 5, 32, 36)
+
+[resource]
+script = ExtResource("1_uhvfv")
+object_to_place_id = 4
+name = "Furnace"
+texture = SubResource("AtlasTexture_jl3b7")
+stack_size = 50

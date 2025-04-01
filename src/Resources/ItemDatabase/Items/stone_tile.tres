@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryPlaceableTileData" load_steps=3 format=3 uid="uid://dmilo1ngb3lqv"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/inventory_placeable_tile_data.gd" id="1_67w2n"]
+[ext_resource type="Texture2D" uid="uid://brlj0ug16t2kj" path="res://Sprites/tiles/stone_tile_icon.png" id="2_87tcu"]
+
+[resource]
+script = ExtResource("1_67w2n")
+tile_to_place = 3
+name = "Stone Tile"
+texture = ExtResource("2_87tcu")
+stack_size = 50

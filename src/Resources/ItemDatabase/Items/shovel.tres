@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ToolData" load_steps=4 format=3 uid="uid://xej6t3v8hole"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/tool_data.gd" id="1_e44f6"]
+[ext_resource type="Texture2D" uid="uid://bvbqfo44ejin2" path="res://Sprites/tools_and_resources.png" id="2_en54u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsqls"]
+atlas = ExtResource("2_en54u")
+region = Rect2(260, 8, 36, 36)
+
+[resource]
+script = ExtResource("1_e44f6")
+attack_cooldown = 0.5
+cooldown_timer = 0.0
+max_health = 60
+health = 0
+name = "Shovel"
+texture = SubResource("AtlasTexture_qsqls")
+stack_size = 1

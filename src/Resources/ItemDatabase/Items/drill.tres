@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="InventoryPlaceableObjectData" load_steps=4 format=3 uid="uid://dem7daefcoig7"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/inventory_placeable_object_data.gd" id="1_k3cyl"]
+[ext_resource type="Texture2D" uid="uid://hmted4j60win" path="res://Sprites/stranded-factory_pack/Quarries/Basic Quarry.png" id="2_h3q1h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y33a"]
+atlas = ExtResource("2_h3q1h")
+region = Rect2(16, 32, 16, 32)
+
+[resource]
+script = ExtResource("1_k3cyl")
+object_to_place_id = 5
+name = "Drill"
+texture = SubResource("AtlasTexture_5y33a")
+stack_size = 50

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FuelItemData" load_steps=4 format=3 uid="uid://comt4q4jjwnq2"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/fuel_item_data.gd" id="1_mygwe"]
+[ext_resource type="Texture2D" uid="uid://bvbqfo44ejin2" path="res://Sprites/tools_and_resources.png" id="2_3txu3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbgff"]
+atlas = ExtResource("2_3txu3")
+region = Rect2(44, 116, 36, 36)
+
+[resource]
+script = ExtResource("1_mygwe")
+duration = 0.5
+name = "Sticks"
+texture = SubResource("AtlasTexture_qbgff")
+stack_size = 100

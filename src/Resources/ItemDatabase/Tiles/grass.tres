@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="WorldDamagableTileData" load_steps=9 format=3 uid="uid://8m3pf5cxccxd"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack_range.gd" id="1_v0eh8"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldTiles/world_damagable_tile_data.gd" id="1_w2dyy"]
+[ext_resource type="Resource" uid="uid://kcxncti7ckm5" path="res://Resources/ItemDatabase/Items/dirt.tres" id="2_3df8u"]
+[ext_resource type="Texture2D" uid="uid://b66yef48edi46" path="res://Sprites/tiles/grass_v2.png" id="2_l7w3u"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/tool_damage.gd" id="3_bqe22"]
+[ext_resource type="Resource" uid="uid://xej6t3v8hole" path="res://Resources/ItemDatabase/Items/shovel.tres" id="4_703h8"]
+
+[sub_resource type="Resource" id="Resource_jyb8f"]
+script = ExtResource("1_v0eh8")
+item = ExtResource("2_3df8u")
+min_count = 2
+max_count = 4
+
+[sub_resource type="Resource" id="Resource_xkpo5"]
+script = ExtResource("3_bqe22")
+tool = ExtResource("4_703h8")
+value = 1.0
+
+[resource]
+script = ExtResource("1_w2dyy")
+tools_break_time = Array[ExtResource("3_bqe22")]([SubResource("Resource_xkpo5")])
+drop_itmes = Array[ExtResource("1_v0eh8")]([SubResource("Resource_jyb8f")])
+name = "Grass"
+tileset_atlas_id = 1
+tileset_texture = ExtResource("2_l7w3u")
+unique_color = Color(0, 1, 0, 1)

@@ -1,0 +1,203 @@
+[gd_scene load_steps=15 format=3 uid="uid://ddrs15tv52p4y"]
+
+[ext_resource type="Texture2D" uid="uid://dsrom45f6obru" path="res://Sprites/objects/robotic_arm.png" id="1_dl7tn"]
+[ext_resource type="Script" path="res://Resources/ItemDatabase/Objects/RoboticArm/robotic_arm.gd" id="1_fnvqs"]
+[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="1_htvdj"]
+[ext_resource type="Texture2D" uid="uid://cwvocdi3mkvs" path="res://Sprites/UI/Windows95/Windows_Icons.png" id="4_ovtpd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vso5q"]
+shader = ExtResource("1_htvdj")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 0
+shader_parameter/transparency = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7qvb"]
+atlas = ExtResource("1_dl7tn")
+region = Rect2(18, 1, 11, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li8g6"]
+atlas = ExtResource("1_dl7tn")
+region = Rect2(0, 3, 15, 26)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6t8k"]
+shader = ExtResource("1_htvdj")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 1
+shader_parameter/transparency = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrpo5"]
+atlas = ExtResource("4_ovtpd")
+region = Rect2(3, 5, 9, 6)
+
+[sub_resource type="Animation" id="Animation_6j0qt"]
+resource_name = "MoveDown"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm/Sprite2D:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arm:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2.63902, 1),
+"update": 0,
+"values": [Vector2(1, 0.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n4ryf"]
+resource_name = "MoveLeft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5708, -1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm/Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_3wtsg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm/Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arm/Sprite2D:z_index")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Arm:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_etngo"]
+_data = {
+"MoveDown": SubResource("Animation_6j0qt"),
+"MoveLeft": SubResource("Animation_n4ryf"),
+"RESET": SubResource("Animation_3wtsg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nub2p"]
+size = Vector2(14, 22)
+
+[node name="RoboticArm" type="Sprite2D"]
+material = SubResource("ShaderMaterial_vso5q")
+script = ExtResource("1_fnvqs")
+
+[node name="Arm" type="Node2D" parent="."]
+position = Vector2(0, -10)
+rotation = 1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="Arm"]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_vso5q")
+position = Vector2(0, -15.5)
+texture = SubResource("AtlasTexture_l7qvb")
+
+[node name="Item" type="Sprite2D" parent="Arm/Sprite2D"]
+z_index = 1
+position = Vector2(-8.34167e-05, -7.5)
+scale = Vector2(0.5, 0.5)
+
+[node name="Body" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vso5q")
+position = Vector2(0, -6.5)
+texture = SubResource("AtlasTexture_li8g6")
+
+[node name="OutputArrow" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="OutputArrow"]
+material = SubResource("ShaderMaterial_v6t8k")
+position = Vector2(0, 8)
+texture = SubResource("AtlasTexture_vrpo5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_etngo")
+}
+speed_scale = 2.0
+
+[node name="MouseSelect" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseSelect"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_nub2p")

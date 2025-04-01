@@ -1,0 +1,168 @@
+[gd_resource type="Resource" script_class="WorldTreeData" load_steps=42 format=3 uid="uid://bda3klske13ks"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldObjects/DamagableObject/Tree/death_scene_override.gd" id="1_0em50"]
+[ext_resource type="PackedScene" uid="uid://ctr4hmo7g4lt3" path="res://Resources/ItemDatabase/Objects/Spruce Tree/with_leaves/spruce_tree_0_l.tscn" id="1_cmqnc"]
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack_range.gd" id="1_qp0wb"]
+[ext_resource type="PackedScene" uid="uid://d327r7wg127dh" path="res://Resources/ItemDatabase/Objects/Spruce Tree/with_leaves/spruce_tree_1_l.tscn" id="2_3xtby"]
+[ext_resource type="Resource" uid="uid://ng76s4sp8uln" path="res://Resources/ItemDatabase/Items/wood.tres" id="2_tp3mh"]
+[ext_resource type="PackedScene" uid="uid://c5qtkrmvg7kw5" path="res://Resources/ItemDatabase/Objects/Spruce Tree/with_leaves/spruce_tree_2_l.tscn" id="3_cnidl"]
+[ext_resource type="Resource" uid="uid://comt4q4jjwnq2" path="res://Resources/ItemDatabase/Items/sticks.tres" id="3_rxnjw"]
+[ext_resource type="PackedScene" uid="uid://dd7vd6idljvrk" path="res://Resources/ItemDatabase/Objects/Spruce Tree/with_leaves/spruce_tree_3_l.tscn" id="4_5yq7h"]
+[ext_resource type="PackedScene" uid="uid://oe8d6bc1q32l" path="res://Resources/ItemDatabase/Objects/Spruce Tree/with_leaves/spruce_tree_4_l.tscn" id="5_mt3l3"]
+[ext_resource type="PackedScene" uid="uid://dfonpn7kva62x" path="res://Resources/ItemDatabase/Objects/Spruce Tree/with_leaves/spruce_tree_5_l.tscn" id="6_o7ifv"]
+[ext_resource type="PackedScene" uid="uid://dw1njimou1gra" path="res://Resources/ItemDatabase/Objects/Spruce Tree/with_leaves/spruce_tree_t_l.tscn" id="7_nk5pq"]
+[ext_resource type="PackedScene" uid="uid://chu88km02gcpu" path="res://Resources/ItemDatabase/Objects/Spruce Tree/without_leaves/spruce_tree_0_n.tscn" id="8_6uin6"]
+[ext_resource type="PackedScene" uid="uid://dp35opwqgcyay" path="res://Resources/ItemDatabase/Objects/Spruce Tree/without_leaves/spruce_tree_1_n.tscn" id="9_d4q2m"]
+[ext_resource type="PackedScene" uid="uid://bc2g4cmwebc8h" path="res://Resources/ItemDatabase/Objects/Spruce Tree/without_leaves/spruce_tree_2_n.tscn" id="10_exi1s"]
+[ext_resource type="PackedScene" uid="uid://tsccrikxcws8" path="res://Resources/ItemDatabase/Objects/Spruce Tree/without_leaves/spruce_tree_3_n.tscn" id="11_aqrob"]
+[ext_resource type="PackedScene" uid="uid://7fyqxhb0bia4" path="res://Resources/ItemDatabase/Objects/Spruce Tree/without_leaves/spruce_tree_4_n.tscn" id="12_w4ifs"]
+[ext_resource type="PackedScene" uid="uid://cfa5itw8wg02f" path="res://Resources/ItemDatabase/Objects/Spruce Tree/without_leaves/spruce_tree_5_n.tscn" id="13_x14ql"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/tool_damage.gd" id="16_fomyt"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldObjects/DamagableObject/Tree/drop_items_override.gd" id="16_ki5od"]
+[ext_resource type="Resource" uid="uid://byg6mles1no4k" path="res://Resources/ItemDatabase/Items/axe.tres" id="17_71pq0"]
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldObjects/DamagableObject/Tree/world_tree_data.gd" id="18_uxfap"]
+
+[sub_resource type="Resource" id="Resource_dbc5x"]
+script = ExtResource("1_0em50")
+grow_state = 0
+ignore_leaves = true
+has_leaves = false
+
+[sub_resource type="Resource" id="Resource_xaa1p"]
+script = ExtResource("1_0em50")
+grow_state = 1
+ignore_leaves = true
+has_leaves = false
+
+[sub_resource type="Resource" id="Resource_744w1"]
+script = ExtResource("1_0em50")
+grow_state = 2
+ignore_leaves = true
+has_leaves = false
+
+[sub_resource type="Resource" id="Resource_skm4t"]
+script = ExtResource("1_0em50")
+grow_state = 3
+ignore_leaves = true
+has_leaves = false
+
+[sub_resource type="Resource" id="Resource_cghwf"]
+script = ExtResource("1_0em50")
+grow_state = 5
+ignore_leaves = false
+has_leaves = false
+scene = ExtResource("8_6uin6")
+
+[sub_resource type="Resource" id="Resource_6ccfc"]
+script = ExtResource("1_qp0wb")
+item = ExtResource("2_tp3mh")
+min_count = 3
+max_count = 5
+
+[sub_resource type="Resource" id="Resource_3oggd"]
+script = ExtResource("1_qp0wb")
+item = ExtResource("3_rxnjw")
+min_count = 5
+max_count = 8
+
+[sub_resource type="Resource" id="Resource_hs3mt"]
+script = ExtResource("1_qp0wb")
+item = ExtResource("3_rxnjw")
+min_count = 1
+max_count = 2
+
+[sub_resource type="Resource" id="Resource_q6d1q"]
+script = ExtResource("16_ki5od")
+grow_state = 0
+ignore_leaves = true
+has_leaves = false
+drop_items = Array[ExtResource("1_qp0wb")]([SubResource("Resource_hs3mt")])
+
+[sub_resource type="Resource" id="Resource_ittja"]
+script = ExtResource("1_qp0wb")
+item = ExtResource("3_rxnjw")
+min_count = 2
+max_count = 4
+
+[sub_resource type="Resource" id="Resource_kcplr"]
+script = ExtResource("16_ki5od")
+grow_state = 1
+ignore_leaves = true
+has_leaves = false
+drop_items = Array[ExtResource("1_qp0wb")]([SubResource("Resource_ittja")])
+
+[sub_resource type="Resource" id="Resource_r36x7"]
+script = ExtResource("1_qp0wb")
+item = ExtResource("3_rxnjw")
+min_count = 3
+max_count = 6
+
+[sub_resource type="Resource" id="Resource_ok0j8"]
+script = ExtResource("16_ki5od")
+grow_state = 2
+ignore_leaves = true
+has_leaves = false
+drop_items = Array[ExtResource("1_qp0wb")]([SubResource("Resource_r36x7")])
+
+[sub_resource type="Resource" id="Resource_7n1nf"]
+script = ExtResource("1_qp0wb")
+item = ExtResource("2_tp3mh")
+min_count = 1
+max_count = 3
+
+[sub_resource type="Resource" id="Resource_p5gcj"]
+script = ExtResource("1_qp0wb")
+item = ExtResource("3_rxnjw")
+min_count = 2
+max_count = 6
+
+[sub_resource type="Resource" id="Resource_r7s6d"]
+script = ExtResource("16_ki5od")
+grow_state = 3
+ignore_leaves = true
+has_leaves = false
+drop_items = Array[ExtResource("1_qp0wb")]([SubResource("Resource_7n1nf"), SubResource("Resource_p5gcj")])
+
+[sub_resource type="Resource" id="Resource_6oy7q"]
+script = ExtResource("1_qp0wb")
+item = ExtResource("2_tp3mh")
+min_count = 2
+max_count = 4
+
+[sub_resource type="Resource" id="Resource_xvq5n"]
+script = ExtResource("1_qp0wb")
+item = ExtResource("3_rxnjw")
+min_count = 3
+max_count = 7
+
+[sub_resource type="Resource" id="Resource_thkv3"]
+script = ExtResource("16_ki5od")
+grow_state = 4
+ignore_leaves = true
+has_leaves = false
+drop_items = Array[ExtResource("1_qp0wb")]([SubResource("Resource_6oy7q"), SubResource("Resource_xvq5n")])
+
+[sub_resource type="Resource" id="Resource_e23yy"]
+script = ExtResource("16_fomyt")
+tool = ExtResource("17_71pq0")
+value = 2.0
+
+[resource]
+script = ExtResource("18_uxfap")
+grow_state_atlas_coords_l = Array[PackedScene]([ExtResource("1_cmqnc"), ExtResource("2_3xtby"), ExtResource("3_cnidl"), ExtResource("4_5yq7h"), ExtResource("5_mt3l3"), ExtResource("6_o7ifv")])
+grow_state_atlas_coords_n = Array[PackedScene]([ExtResource("8_6uin6"), ExtResource("9_d4q2m"), ExtResource("10_exi1s"), ExtResource("11_aqrob"), ExtResource("12_w4ifs"), ExtResource("13_x14ql")])
+drop_items_overrides = Array[ExtResource("16_ki5od")]([SubResource("Resource_q6d1q"), SubResource("Resource_kcplr"), SubResource("Resource_ok0j8"), SubResource("Resource_r7s6d"), SubResource("Resource_thkv3")])
+death_scene_overrides = Array[ExtResource("1_0em50")]([SubResource("Resource_dbc5x"), SubResource("Resource_xaa1p"), SubResource("Resource_744w1"), SubResource("Resource_skm4t"), SubResource("Resource_cghwf")])
+has_leaves = true
+grow_state = 0
+fist_break_time = 10.0
+tools_break_time = Array[ExtResource("16_fomyt")]([SubResource("Resource_e23yy")])
+max_health = 100
+drop_items = Array[ExtResource("1_qp0wb")]([SubResource("Resource_6ccfc"), SubResource("Resource_3oggd")])
+scene_on_death = ExtResource("7_nk5pq")
+_health = 0
+broked = false
+name = "Oak Tree"
+grid_size = Vector2i(1, 1)
+can_rotate = false
+rotation = 0

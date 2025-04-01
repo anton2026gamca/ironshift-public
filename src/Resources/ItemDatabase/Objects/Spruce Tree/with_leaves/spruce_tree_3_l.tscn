@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd7vd6idljvrk"]
+
+[ext_resource type="Texture2D" uid="uid://cggkgabeqwsmp" path="res://Sprites/trees/tree-spruce.png" id="1_0mwr2"]
+[ext_resource type="Shader" path="res://Shaders/outline.gdshader" id="1_oqnq3"]
+[ext_resource type="Script" path="res://Scripts/fading_object.gd" id="4_b1atc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q672t"]
+shader = ExtResource("1_oqnq3")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 0
+shader_parameter/transparency = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4jcx"]
+atlas = ExtResource("1_0mwr2")
+region = Rect2(192, 0, 64, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0hto"]
+size = Vector2(5, 3)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_47oa7"]
+radius = 12.0
+height = 31.0
+
+[node name="SpruceTree0L" type="Sprite2D"]
+material = SubResource("ShaderMaterial_q672t")
+texture = SubResource("AtlasTexture_v4jcx")
+offset = Vector2(0, -42)
+
+[node name="HitBox" type="StaticBody2D" parent="."]
+collision_layer = 9
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_f0hto")
+
+[node name="MouseSelect" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseSelect"]
+position = Vector2(0, -10.5)
+shape = SubResource("CapsuleShape2D_47oa7")
+
+[node name="FadingObject" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("4_b1atc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FadingObject"]
+polygon = PackedVector2Array(5, -2, -5, -2, -12, -8, -12, -11, -2, -26, 2, -26, 12, -11, 12, -8)

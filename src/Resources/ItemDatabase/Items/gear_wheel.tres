@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItemData" load_steps=3 format=3 uid="uid://cwxt3h1pwsel7"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/InventoryItems/inventory_item_data.gd" id="1_xrh71"]
+[ext_resource type="Texture2D" uid="uid://b2l21vsgd6wh4" path="res://Sprites/items/gear_wheel.png" id="2_jiogp"]
+
+[resource]
+script = ExtResource("1_xrh71")
+name = "Gear Wheel"
+texture = ExtResource("2_jiogp")
+stack_size = 100

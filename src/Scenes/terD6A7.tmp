@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://5xcnbrsfrv64"]
+
+[ext_resource type="Script" path="res://Scripts/terrain_display.gd" id="1_ypsek"]
+[ext_resource type="Texture2D" uid="uid://djsjjd0sh0ba2" path="res://Sprites/biomes.png" id="2_duhwk"]
+[ext_resource type="Script" path="res://Scripts/terrain_generation.gd" id="3_ojv3m"]
+[ext_resource type="Script" path="res://Scripts/terrain_layer.gd" id="4_1oejb"]
+[ext_resource type="TileSet" uid="uid://cdirsf2wwpxi2" path="res://Tilesets/tiles.tres" id="4_e0s33"]
+[ext_resource type="TileSet" uid="uid://bh3dybt5ugfw" path="res://Tilesets/objects.tres" id="5_5ngsq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u3fl3"]
+texture = ExtResource("2_duhwk")
+texture_region_size = Vector2i(4, 4)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ag3fl"]
+tile_size = Vector2i(4, 4)
+sources/0 = SubResource("TileSetAtlasSource_u3fl3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kqpex"]
+
+[node name="TerrainGeneration" type="Node2D"]
+y_sort_enabled = true
+scale = Vector2(5, 5)
+script = ExtResource("1_ypsek")
+
+[node name="ChunkLoader" type="TileMapLayer" parent="."]
+scale = Vector2(0.8, 0.8)
+tile_set = SubResource("TileSet_ag3fl")
+script = ExtResource("3_ojv3m")
+
+[node name="Layer" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("4_1oejb")
+
+[node name="Ground" type="TileMapLayer" parent="Layer" groups=["terrain-ground"]]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_kqpex")
+tile_set = ExtResource("4_e0s33")
+
+[node name="Objects" type="Node2D" parent="Layer"]
+y_sort_enabled = true
+
+[node name="TemplateObject" type="TileMapLayer" parent="Layer/Objects" groups=["terrain-objects"]]
+y_sort_enabled = true
+scale = Vector2(1, 1)
+tile_set = ExtResource("5_5ngsq")

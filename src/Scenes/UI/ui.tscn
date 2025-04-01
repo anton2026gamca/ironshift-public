@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://durc8qla8b4kc"]
+
+[ext_resource type="PackedScene" uid="uid://cxn5pfld34y1m" path="res://Scenes/UI/Inventory/inventory.tscn" id="1_5eejn"]
+[ext_resource type="Script" path="res://Scripts/UI/fps.gd" id="2_ftw64"]
+[ext_resource type="PackedScene" uid="uid://66psiob40quk" path="res://Scenes/UI/pause_menu.tscn" id="3_26xy8"]
+[ext_resource type="PackedScene" uid="uid://8qlur671p7bk" path="res://Scenes/UI/SettingsWindow/settings_window.tscn" id="4_m0pjb"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" parent="." instance=ExtResource("1_5eejn")]
+visible = false
+layout_mode = 1
+
+[node name="FPS" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 330.0
+offset_bottom = 144.0
+theme_override_font_sizes/normal_font_size = 24
+text = "10"
+script = ExtResource("2_ftw64")
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_26xy8")]
+visible = false
+layout_mode = 1
+
+[node name="SettingsWindow" parent="." instance=ExtResource("4_m0pjb")]
+visible = false
+layout_mode = 1

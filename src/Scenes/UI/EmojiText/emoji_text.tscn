@@ -1,0 +1,236 @@
+[gd_scene load_steps=77 format=3 uid="uid://b1f7pfyysj84f"]
+
+[ext_resource type="Script" path="res://Scripts/UI/EmojiText/emoji_text.gd" id="1_a751u"]
+[ext_resource type="Script" path="res://Scripts/UI/EmojiText/char_to_texture.gd" id="2_hhcc1"]
+[ext_resource type="Texture2D" uid="uid://nkmsqfam4q0l" path="res://Sprites/UI/emojis/U+30_U+20E3.png" id="3_5kw7s"]
+[ext_resource type="Texture2D" uid="uid://vjmld0kgfe6m" path="res://Sprites/UI/emojis/U+31_U+20E3.png" id="4_esd76"]
+[ext_resource type="Texture2D" uid="uid://cqo2tlv58qn3e" path="res://Sprites/UI/emojis/U+32_U+20E3.png" id="5_u3p51"]
+[ext_resource type="Texture2D" uid="uid://1oh11tvpdsqq" path="res://Sprites/UI/emojis/U+33_U+20E3.png" id="6_orwf3"]
+[ext_resource type="Texture2D" uid="uid://bt7s7wcdicv6x" path="res://Sprites/UI/emojis/U+34_U+20E3.png" id="7_0kaax"]
+[ext_resource type="Texture2D" uid="uid://2bk5k6ab8c3" path="res://Sprites/UI/emojis/U+35_U+20E3.png" id="8_wp7p2"]
+[ext_resource type="Texture2D" uid="uid://brtrjc7alpbfs" path="res://Sprites/UI/emojis/U+36_U+20E3.png" id="9_p2iye"]
+[ext_resource type="Texture2D" uid="uid://b2t2tx72iekx0" path="res://Sprites/UI/emojis/U+37_U+20E3.png" id="10_ufm6d"]
+[ext_resource type="Texture2D" uid="uid://bfe4gt57k5kfc" path="res://Sprites/UI/emojis/U+38_U+20E3.png" id="11_abfhj"]
+[ext_resource type="Texture2D" uid="uid://cub2ic785yqhg" path="res://Sprites/UI/emojis/U+39_U+20E3.png" id="12_433sw"]
+[ext_resource type="Texture2D" uid="uid://cfjwdq5p7y6qo" path="res://Sprites/UI/space.png" id="13_2vw7c"]
+[ext_resource type="Texture2D" uid="uid://dmc06jnmnfwb4" path="res://Sprites/UI/question_mark.png" id="13_xo4bx"]
+[ext_resource type="Texture2D" uid="uid://bmuvppsgsyc1k" path="res://Sprites/UI/emojis/U+1F630.png" id="14_2a6xm"]
+[ext_resource type="Texture2D" uid="uid://cc0c1fm4bf80r" path="res://Sprites/UI/emojis/U+1F9E0.png" id="15_c1rs1"]
+[ext_resource type="Texture2D" uid="uid://cbll1a7cvmnnr" path="res://Sprites/UI/emojis/U+1F921.png" id="16_yre8f"]
+[ext_resource type="Texture2D" uid="uid://cjrup0bw3jglo" path="res://Sprites/UI/emojis/U+1F447.png" id="17_q8t21"]
+[ext_resource type="Texture2D" uid="uid://ddy2yk88088cn" path="res://Sprites/UI/emojis/U+1F442.png" id="18_hkux2"]
+[ext_resource type="Texture2D" uid="uid://dps751eti3yaf" path="res://Sprites/UI/emojis/U+1F9B6.png" id="19_c8dq1"]
+[ext_resource type="Texture2D" uid="uid://ep6b7afx45gi" path="res://Sprites/UI/emojis/U+1F9DE.png" id="20_dyuk3"]
+[ext_resource type="Texture2D" uid="uid://ckul6bnq0ruhk" path="res://Sprites/UI/emojis/U+1F681.png" id="21_31gp0"]
+[ext_resource type="Texture2D" uid="uid://cbw0nimmj3w7x" path="res://Sprites/UI/emojis/U+1F367.png" id="22_jn8u8"]
+[ext_resource type="Texture2D" uid="uid://cr58xc0joffxj" path="res://Sprites/UI/emojis/U+1F468_U+200D_U+2696.png" id="23_pl524"]
+[ext_resource type="Texture2D" uid="uid://blf27kiv4laak" path="res://Sprites/UI/emojis/U+1F52A.png" id="24_lwrsp"]
+[ext_resource type="Texture2D" uid="uid://bnxagex8epswb" path="res://Sprites/UI/emojis/U+1F498.png" id="25_57jra"]
+[ext_resource type="Texture2D" uid="uid://bgyn4nuyu4kny" path="res://Sprites/UI/emojis/U+1F412.png" id="26_pt3mn"]
+[ext_resource type="Texture2D" uid="uid://dibbv433167sx" path="res://Sprites/UI/emojis/U+1F443.png" id="27_06yxx"]
+[ext_resource type="Texture2D" uid="uid://crm1v4eycq1jp" path="res://Sprites/UI/emojis/U+1F3E2.png" id="28_22n4v"]
+[ext_resource type="Texture2D" uid="uid://c418jxbudvbau" path="res://Sprites/UI/emojis/U+1F4A9.png" id="29_kwuyg"]
+[ext_resource type="Texture2D" uid="uid://dq6kcixkv6m1c" path="res://Sprites/UI/emojis/U+1F449.png" id="30_v54rx"]
+[ext_resource type="Texture2D" uid="uid://c1vl712kwsnay" path="res://Sprites/UI/emojis/U+1F600.png" id="31_fjxo0"]
+[ext_resource type="Texture2D" uid="uid://ddejwpbhclhag" path="res://Sprites/UI/emojis/U+1F332.png" id="32_t405s"]
+[ext_resource type="Texture2D" uid="uid://b58fd2qw8eb8t" path="res://Sprites/UI/emojis/U+2602.png" id="33_d6if8"]
+[ext_resource type="Texture2D" uid="uid://dqf58xl77fks1" path="res://Sprites/UI/emojis/U+1F9BA.png" id="34_4iq5x"]
+[ext_resource type="Texture2D" uid="uid://b4iqhq0uqe7lh" path="res://Sprites/UI/emojis/U+1F90D.png" id="35_u8p12"]
+[ext_resource type="Texture2D" uid="uid://d08ptmpij03ha" path="res://Sprites/UI/emojis/U+1F695.png" id="36_8h4ad"]
+[ext_resource type="Texture2D" uid="uid://ck71x25qbqg24" path="res://Sprites/UI/emojis/U+1F4B4.png" id="37_80skk"]
+[ext_resource type="Texture2D" uid="uid://8gxsc4w5jqjm" path="res://Sprites/UI/emojis/U+1F9DF.png" id="38_0054o"]
+
+[sub_resource type="Resource" id="Resource_3htdh"]
+script = ExtResource("2_hhcc1")
+char = "0"
+texture = ExtResource("3_5kw7s")
+
+[sub_resource type="Resource" id="Resource_ht2n4"]
+script = ExtResource("2_hhcc1")
+char = "1"
+texture = ExtResource("4_esd76")
+
+[sub_resource type="Resource" id="Resource_a1vkj"]
+script = ExtResource("2_hhcc1")
+char = "2"
+texture = ExtResource("5_u3p51")
+
+[sub_resource type="Resource" id="Resource_d8c5m"]
+script = ExtResource("2_hhcc1")
+char = "3"
+texture = ExtResource("6_orwf3")
+
+[sub_resource type="Resource" id="Resource_xbaxd"]
+script = ExtResource("2_hhcc1")
+char = "4"
+texture = ExtResource("7_0kaax")
+
+[sub_resource type="Resource" id="Resource_j5w4c"]
+script = ExtResource("2_hhcc1")
+char = "5"
+texture = ExtResource("8_wp7p2")
+
+[sub_resource type="Resource" id="Resource_nk85x"]
+script = ExtResource("2_hhcc1")
+char = "6"
+texture = ExtResource("9_p2iye")
+
+[sub_resource type="Resource" id="Resource_mmwpt"]
+script = ExtResource("2_hhcc1")
+char = "7"
+texture = ExtResource("10_ufm6d")
+
+[sub_resource type="Resource" id="Resource_1y7ph"]
+script = ExtResource("2_hhcc1")
+char = "8"
+texture = ExtResource("11_abfhj")
+
+[sub_resource type="Resource" id="Resource_aqkm7"]
+script = ExtResource("2_hhcc1")
+char = "9"
+texture = ExtResource("12_433sw")
+
+[sub_resource type="Resource" id="Resource_fgpnp"]
+script = ExtResource("2_hhcc1")
+char = " "
+texture = ExtResource("13_2vw7c")
+
+[sub_resource type="Resource" id="Resource_ex463"]
+script = ExtResource("2_hhcc1")
+char = "Aa"
+texture = ExtResource("14_2a6xm")
+
+[sub_resource type="Resource" id="Resource_iwwvb"]
+script = ExtResource("2_hhcc1")
+char = "Bb"
+texture = ExtResource("15_c1rs1")
+
+[sub_resource type="Resource" id="Resource_hk7n6"]
+script = ExtResource("2_hhcc1")
+char = "Cc"
+texture = ExtResource("16_yre8f")
+
+[sub_resource type="Resource" id="Resource_ymehf"]
+script = ExtResource("2_hhcc1")
+char = "Dd"
+texture = ExtResource("17_q8t21")
+
+[sub_resource type="Resource" id="Resource_p28bu"]
+script = ExtResource("2_hhcc1")
+char = "Ee"
+texture = ExtResource("18_hkux2")
+
+[sub_resource type="Resource" id="Resource_hhfyk"]
+script = ExtResource("2_hhcc1")
+char = "Ff"
+texture = ExtResource("19_c8dq1")
+
+[sub_resource type="Resource" id="Resource_akb3j"]
+script = ExtResource("2_hhcc1")
+char = "Gg"
+texture = ExtResource("20_dyuk3")
+
+[sub_resource type="Resource" id="Resource_k4l6l"]
+script = ExtResource("2_hhcc1")
+char = "Hh"
+texture = ExtResource("21_31gp0")
+
+[sub_resource type="Resource" id="Resource_0ohtg"]
+script = ExtResource("2_hhcc1")
+char = "Ii"
+texture = ExtResource("22_jn8u8")
+
+[sub_resource type="Resource" id="Resource_qfuwx"]
+script = ExtResource("2_hhcc1")
+char = "Jj"
+texture = ExtResource("23_pl524")
+
+[sub_resource type="Resource" id="Resource_sfe35"]
+script = ExtResource("2_hhcc1")
+char = "Kk"
+texture = ExtResource("24_lwrsp")
+
+[sub_resource type="Resource" id="Resource_ul760"]
+script = ExtResource("2_hhcc1")
+char = "Ll"
+texture = ExtResource("25_57jra")
+
+[sub_resource type="Resource" id="Resource_yt7xk"]
+script = ExtResource("2_hhcc1")
+char = "Mm"
+texture = ExtResource("26_pt3mn")
+
+[sub_resource type="Resource" id="Resource_bjf36"]
+script = ExtResource("2_hhcc1")
+char = "Nn"
+texture = ExtResource("27_06yxx")
+
+[sub_resource type="Resource" id="Resource_yw4pq"]
+script = ExtResource("2_hhcc1")
+char = "Oo"
+texture = ExtResource("28_22n4v")
+
+[sub_resource type="Resource" id="Resource_alqsx"]
+script = ExtResource("2_hhcc1")
+char = "Pp"
+texture = ExtResource("29_kwuyg")
+
+[sub_resource type="Resource" id="Resource_lmuh7"]
+script = ExtResource("2_hhcc1")
+char = "Rr"
+texture = ExtResource("30_v54rx")
+
+[sub_resource type="Resource" id="Resource_p38ap"]
+script = ExtResource("2_hhcc1")
+char = "Ss"
+texture = ExtResource("31_fjxo0")
+
+[sub_resource type="Resource" id="Resource_tikkn"]
+script = ExtResource("2_hhcc1")
+char = "Tt"
+texture = ExtResource("32_t405s")
+
+[sub_resource type="Resource" id="Resource_qoebw"]
+script = ExtResource("2_hhcc1")
+char = "Uu"
+texture = ExtResource("33_d6if8")
+
+[sub_resource type="Resource" id="Resource_2ywgs"]
+script = ExtResource("2_hhcc1")
+char = "Vv"
+texture = ExtResource("34_4iq5x")
+
+[sub_resource type="Resource" id="Resource_0heot"]
+script = ExtResource("2_hhcc1")
+char = "Ww"
+texture = ExtResource("35_u8p12")
+
+[sub_resource type="Resource" id="Resource_12dws"]
+script = ExtResource("2_hhcc1")
+char = "Xx"
+texture = ExtResource("36_8h4ad")
+
+[sub_resource type="Resource" id="Resource_56a6v"]
+script = ExtResource("2_hhcc1")
+char = "Yy"
+texture = ExtResource("37_80skk")
+
+[sub_resource type="Resource" id="Resource_oxcc7"]
+script = ExtResource("2_hhcc1")
+char = "Zz"
+texture = ExtResource("38_0054o")
+
+[sub_resource type="Resource" id="Resource_epbx6"]
+script = ExtResource("2_hhcc1")
+char = "?"
+texture = ExtResource("13_xo4bx")
+
+[node name="EmojiText" type="HFlowContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a751u")
+rules = Array[ExtResource("2_hhcc1")]([SubResource("Resource_3htdh"), SubResource("Resource_ht2n4"), SubResource("Resource_a1vkj"), SubResource("Resource_d8c5m"), SubResource("Resource_xbaxd"), SubResource("Resource_j5w4c"), SubResource("Resource_nk85x"), SubResource("Resource_mmwpt"), SubResource("Resource_1y7ph"), SubResource("Resource_aqkm7"), SubResource("Resource_fgpnp"), SubResource("Resource_ex463"), SubResource("Resource_iwwvb"), SubResource("Resource_hk7n6"), SubResource("Resource_ymehf"), SubResource("Resource_p28bu"), SubResource("Resource_hhfyk"), SubResource("Resource_akb3j"), SubResource("Resource_k4l6l"), SubResource("Resource_0ohtg"), SubResource("Resource_qfuwx"), SubResource("Resource_sfe35"), SubResource("Resource_ul760"), SubResource("Resource_yt7xk"), SubResource("Resource_bjf36"), SubResource("Resource_yw4pq"), SubResource("Resource_alqsx"), SubResource("Resource_lmuh7"), SubResource("Resource_p38ap"), SubResource("Resource_tikkn"), SubResource("Resource_qoebw"), SubResource("Resource_2ywgs"), SubResource("Resource_0heot"), SubResource("Resource_12dws"), SubResource("Resource_56a6v"), SubResource("Resource_oxcc7"), SubResource("Resource_epbx6")])
+no_match = ExtResource("13_2vw7c")

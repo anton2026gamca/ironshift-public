@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://bgenqbasx1asg"]
+
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="1_eh7vc"]
+[ext_resource type="Texture2D" uid="uid://djsjjd0sh0ba2" path="res://Sprites/biomes.png" id="4_esvkr"]
+[ext_resource type="Script" path="res://Scripts/terrain_generation.gd" id="4_kqavw"]
+[ext_resource type="Script" path="res://Scripts/biome_map_generation.gd" id="7_vsr2r"]
+[ext_resource type="TileSet" uid="uid://cdirsf2wwpxi2" path="res://Tilesets/tiles.tres" id="8_gqai3"]
+[ext_resource type="TileSet" uid="uid://bh3dybt5ugfw" path="res://Tilesets/objects.tres" id="10_svpej"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u3fl3"]
+texture = ExtResource("4_esvkr")
+texture_region_size = Vector2i(4, 4)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ag3fl"]
+tile_size = Vector2i(4, 4)
+sources/0 = SubResource("TileSetAtlasSource_u3fl3")
+
+[node name="World" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("1_eh7vc")
+
+[node name="ChunkLoader" type="TileMapLayer" parent="."]
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_ag3fl")
+script = ExtResource("7_vsr2r")
+
+[node name="Terrain" type="Node2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(5, 5)
+script = ExtResource("4_kqavw")
+
+[node name="TileMapLayers" type="Node2D" parent="Terrain"]
+y_sort_enabled = true
+
+[node name="Layer" type="Node2D" parent="Terrain/TileMapLayers"]
+y_sort_enabled = true
+
+[node name="Ground" type="TileMapLayer" parent="Terrain/TileMapLayers/Layer"]
+y_sort_enabled = true
+tile_set = ExtResource("8_gqai3")
+
+[node name="Objects" type="TileMapLayer" parent="Terrain/TileMapLayers/Layer"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 28, 0, 7, 0, 0, 0)
+tile_set = ExtResource("10_svpej")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw5yyabvcc8ib"]
+
+[ext_resource type="Script" path="res://Scripts/ItemDatabase/WorldObjects/world_object.gd" id="1_0lgr3"]
+[ext_resource type="PackedScene" uid="uid://dd7yt4j8a5qfv" path="res://Scenes/UI/health_bar.tscn" id="2_ie1lr"]
+
+[node name="Object" type="Node2D"]
+script = ExtResource("1_0lgr3")
+
+[node name="HealthBar" parent="." instance=ExtResource("2_ie1lr")]
+z_index = 1
+offset_top = 8.0
+offset_bottom = 15.0

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvk4qalx25d5p"]
+
+[ext_resource type="Theme" uid="uid://b8g7cptiggoa" path="res://theme.tres" id="1_khqx3"]
+[ext_resource type="Script" path="res://Scripts/UI/EmojiText/emoji_button.gd" id="2_x3psl"]
+[ext_resource type="PackedScene" uid="uid://b1f7pfyysj84f" path="res://Scenes/UI/EmojiText/emoji_text.tscn" id="3_x0ram"]
+
+[node name="EmojiButton" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_khqx3")
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+alignment = 0
+script = ExtResource("2_x3psl")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(955, 538)
+render_target_update_mode = 4
+
+[node name="EmojiText" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_x0ram")]

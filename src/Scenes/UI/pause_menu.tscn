@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://66psiob40quk"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Windows/pause_menu.gd" id="1_qp2jh"]
+[ext_resource type="PackedScene" uid="uid://d4l7vu5pjodj1" path="res://Scenes/UI/ui_window.tscn" id="1_yu46o"]
+[ext_resource type="Texture2D" uid="uid://bot50ayhcx1wm" path="res://Sprites/UI/icons.png" id="2_4wmup"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbf0o"]
+atlas = ExtResource("2_4wmup")
+region = Rect2(6, 4, 5, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdtdi"]
+atlas = ExtResource("2_4wmup")
+region = Rect2(20, 4, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfd0g"]
+atlas = ExtResource("2_4wmup")
+region = Rect2(36, 4, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_attku"]
+atlas = ExtResource("2_4wmup")
+region = Rect2(100, 4, 8, 8)
+
+[node name="PauseMenu" instance=ExtResource("1_yu46o")]
+offset_left = -65.0
+offset_top = -33.0
+offset_right = 65.0
+offset_bottom = 33.0
+script = ExtResource("1_qp2jh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowContents" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WindowContents/VBoxContainer" index="0"]
+layout_mode = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="WindowContents/VBoxContainer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+icon = SubResource("AtlasTexture_wbf0o")
+icon_alignment = 1
+
+[node name="Options" type="Button" parent="WindowContents/VBoxContainer/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+icon = SubResource("AtlasTexture_gdtdi")
+icon_alignment = 1
+
+[node name="Stop" type="Button" parent="WindowContents/VBoxContainer/HBoxContainer" index="2"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+icon = SubResource("AtlasTexture_mfd0g")
+icon_alignment = 1
+
+[node name="Save" type="Button" parent="WindowContents/VBoxContainer/HBoxContainer" index="3"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+icon = SubResource("AtlasTexture_attku")
+icon_alignment = 1
+
+[connection signal="pressed" from="WindowContents/VBoxContainer/HBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="WindowContents/VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="WindowContents/VBoxContainer/HBoxContainer/Stop" to="." method="_on_stop_pressed"]
+[connection signal="pressed" from="WindowContents/VBoxContainer/HBoxContainer/Save" to="." method="_on_save_pressed"]

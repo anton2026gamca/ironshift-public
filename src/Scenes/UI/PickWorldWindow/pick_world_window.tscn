@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwsro3sqwdkgk"]
+
+[ext_resource type="PackedScene" uid="uid://d4l7vu5pjodj1" path="res://Scenes/UI/ui_window.tscn" id="1_21vcw"]
+[ext_resource type="Script" path="res://Scripts/UI/Windows/pick_world_window.gd" id="2_s1sr0"]
+[ext_resource type="Texture2D" uid="uid://bot50ayhcx1wm" path="res://Sprites/UI/icons.png" id="3_7ig6k"]
+[ext_resource type="PackedScene" uid="uid://dvk4qalx25d5p" path="res://Scenes/UI/EmojiText/emoji_button.tscn" id="4_5qtjo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pio1"]
+atlas = ExtResource("3_7ig6k")
+region = Rect2(52, 4, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwfbv"]
+atlas = ExtResource("3_7ig6k")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u12a0"]
+atlas = ExtResource("3_7ig6k")
+region = Rect2(130, 4, 12, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utpwd"]
+atlas = ExtResource("3_7ig6k")
+region = Rect2(114, 1, 11, 13)
+
+[node name="PickWorldWindow" instance=ExtResource("1_21vcw")]
+script = ExtResource("2_s1sr0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowContents" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WindowContents/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="CreateWorld" type="Button" parent="WindowContents/VBoxContainer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+icon = SubResource("AtlasTexture_0pio1")
+icon_alignment = 1
+
+[node name="RefreshList" type="Button" parent="WindowContents/VBoxContainer/HBoxContainer" index="1"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+icon = SubResource("AtlasTexture_bwfbv")
+icon_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="WindowContents/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="WindowContents/VBoxContainer" index="2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WorldsList" type="VBoxContainer" parent="WindowContents/VBoxContainer/ScrollContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WorldDisplay" type="HBoxContainer" parent="WindowContents/VBoxContainer/ScrollContainer/WorldsList" index="0"]
+visible = false
+layout_mode = 2
+
+[node name="LoadButton" parent="WindowContents/VBoxContainer/ScrollContainer/WorldsList/WorldDisplay" index="0" instance=ExtResource("4_5qtjo")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RenameButton" type="Button" parent="WindowContents/VBoxContainer/ScrollContainer/WorldsList/WorldDisplay" index="1"]
+visible = false
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+icon = SubResource("AtlasTexture_u12a0")
+icon_alignment = 1
+
+[node name="DeleteButton" type="Button" parent="WindowContents/VBoxContainer/ScrollContainer/WorldsList/WorldDisplay" index="2"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+icon = SubResource("AtlasTexture_utpwd")
+icon_alignment = 1
+
+[connection signal="pressed" from="WindowContents/VBoxContainer/HBoxContainer/CreateWorld" to="." method="_on_create_world_pressed"]
+[connection signal="pressed" from="WindowContents/VBoxContainer/HBoxContainer/RefreshList" to="." method="_on_refresh_list_pressed"]

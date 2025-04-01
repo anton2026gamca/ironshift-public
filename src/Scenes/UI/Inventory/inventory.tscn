@@ -1,0 +1,1051 @@
+[gd_scene load_steps=38 format=3 uid="uid://cxn5pfld34y1m"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/inventory.gd" id="1_fawg4"]
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/item_stack.gd" id="2_cacr8"]
+[ext_resource type="PackedScene" uid="uid://d4l7vu5pjodj1" path="res://Scenes/UI/ui_window.tscn" id="2_givuq"]
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/inventory_data.gd" id="4_ic1ae"]
+[ext_resource type="Theme" uid="uid://b8g7cptiggoa" path="res://theme.tres" id="5_2pvji"]
+[ext_resource type="PackedScene" uid="uid://xbb2psgt2l54" path="res://Scenes/UI/Inventory/inventory_slot.tscn" id="5_d0a38"]
+[ext_resource type="Texture2D" uid="uid://bvbqfo44ejin2" path="res://Sprites/tools_and_resources.png" id="6_7l5mc"]
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/inventory_tab_bar.gd" id="6_fu7j0"]
+[ext_resource type="Texture2D" uid="uid://c6g5lh0guduy" path="res://Sprites/hotbar_selected_slot.png" id="6_yqt8p"]
+[ext_resource type="Script" path="res://Scripts/UI/Inventory/craft_button.gd" id="8_4f0cv"]
+[ext_resource type="FontFile" uid="uid://bunmugpxj5gxe" path="res://font.ttf" id="8_apg0h"]
+[ext_resource type="Resource" uid="uid://vi8t7m5yfmgo" path="res://Resources/ItemDatabase/Recipes/axe.tres" id="9_01dcu"]
+[ext_resource type="Resource" uid="uid://dhcje7b1111nn" path="res://Resources/ItemDatabase/Recipes/shovel.tres" id="13_de53e"]
+[ext_resource type="Resource" uid="uid://dlculs8vxqa2p" path="res://Resources/ItemDatabase/Recipes/pickaxe.tres" id="14_77iju"]
+[ext_resource type="Resource" uid="uid://c7ppun27c2t0h" path="res://Resources/ItemDatabase/Recipes/grass_tile.tres" id="15_4i31a"]
+[ext_resource type="PackedScene" uid="uid://dd7yt4j8a5qfv" path="res://Scenes/UI/health_bar.tscn" id="15_h2i4e"]
+[ext_resource type="Resource" uid="uid://cykaif86p4j6d" path="res://Resources/ItemDatabase/Recipes/stone_tile.tres" id="15_maveb"]
+[ext_resource type="Texture2D" uid="uid://brlj0ug16t2kj" path="res://Sprites/tiles/stone_tile_icon.png" id="16_jxpsi"]
+[ext_resource type="Texture2D" uid="uid://co6ld2d3ag5kg" path="res://Sprites/tiles/grass_tile_icon.png" id="16_mmhnc"]
+[ext_resource type="Resource" uid="uid://c5kqkhwh2i22p" path="res://Resources/ItemDatabase/Recipes/furnace.tres" id="19_q2bq4"]
+[ext_resource type="Texture2D" uid="uid://dey8l4xdl42cr" path="res://Sprites/objects/furnace.png" id="20_y3trd"]
+[ext_resource type="Resource" uid="uid://deeniolau0iqj" path="res://Resources/ItemDatabase/Recipes/wooden_chest.tres" id="22_vxs2k"]
+[ext_resource type="Resource" uid="uid://svfhh0dgo8hc" path="res://Resources/ItemDatabase/Recipes/drill.tres" id="22_yeh55"]
+[ext_resource type="Texture2D" uid="uid://csmjb56mlg1rt" path="res://Sprites/objects/wooden_box.png" id="23_4u6is"]
+[ext_resource type="Texture2D" uid="uid://hmted4j60win" path="res://Sprites/stranded-factory_pack/Quarries/Basic Quarry.png" id="23_a1mwc"]
+
+[sub_resource type="Resource" id="Resource_ehgd3"]
+script = ExtResource("4_ic1ae")
+size = Vector2i(10, 7)
+slots = Array[ExtResource("2_cacr8")]([])
+hotbar = Array[ExtResource("2_cacr8")]([])
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3yf8"]
+atlas = ExtResource("6_7l5mc")
+region = Rect2(8, 8, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmd1p"]
+atlas = ExtResource("6_7l5mc")
+region = Rect2(188, 80, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wstt0"]
+atlas = ExtResource("6_7l5mc")
+region = Rect2(116, 188, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vy03"]
+atlas = ExtResource("6_7l5mc")
+region = Rect2(116, 116, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ofpc"]
+atlas = ExtResource("6_7l5mc")
+region = Rect2(188, 8, 36, 36)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hh3ii"]
+font = ExtResource("8_apg0h")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsqls"]
+atlas = ExtResource("6_7l5mc")
+region = Rect2(260, 8, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugnh0"]
+atlas = ExtResource("6_7l5mc")
+region = Rect2(152, 8, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl3b7"]
+atlas = ExtResource("20_y3trd")
+region = Rect2(32, 5, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y33a"]
+atlas = ExtResource("23_a1mwc")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h27dc"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fawg4")
+data = SubResource("Resource_ehgd3")
+
+[node name="CraftingItems" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = -209.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+reverse_fill = true
+
+[node name="InventoryWindow" parent="." instance=ExtResource("2_givuq")]
+layout_mode = 1
+offset_left = -448.0
+offset_top = -169.0
+offset_right = 448.0
+offset_bottom = 169.0
+pivot_offset = Vector2(223, 169)
+
+[node name="Left" type="Control" parent="InventoryWindow/WindowContents" index="0"]
+layout_mode = 1
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Slots" type="GridContainer" parent="InventoryWindow/WindowContents/Left"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 10
+
+[node name="InventorySlot1" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot16" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot17" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot18" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot19" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot20" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot21" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot22" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot23" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot24" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot25" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot26" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot27" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot28" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot29" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot30" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot31" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot32" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot33" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot34" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot35" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot36" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot37" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot38" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot39" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot40" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot41" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot42" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot43" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot44" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot45" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot46" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot47" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot48" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot49" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot50" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot51" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot52" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot53" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot54" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot55" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot56" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot57" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot58" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot59" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot60" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot61" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot62" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot63" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot64" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot65" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot66" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot67" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot68" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot69" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="InventorySlot70" parent="InventoryWindow/WindowContents/Left/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="InventoryWindow/WindowContents" index="1"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Right" type="Control" parent="InventoryWindow/WindowContents" index="2"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = -4.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="CraftingMenu" type="Control" parent="InventoryWindow/WindowContents/Right"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TabBar" type="TabBar" parent="InventoryWindow/WindowContents/Right/CraftingMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 5.0
+offset_right = -5.0
+offset_bottom = 44.0
+grow_horizontal = 2
+theme = ExtResource("5_2pvji")
+current_tab = 0
+tab_count = 4
+tab_0/icon = SubResource("AtlasTexture_b3yf8")
+tab_1/icon = SubResource("AtlasTexture_nmd1p")
+tab_2/icon = SubResource("AtlasTexture_wstt0")
+tab_3/icon = SubResource("AtlasTexture_6vy03")
+script = ExtResource("6_fu7j0")
+
+[node name="Tab 1" type="Panel" parent="InventoryWindow/WindowContents/Right/CraftingMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 44.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer"]
+layout_mode = 2
+
+[node name="Axe" type="Button" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("5_2pvji")
+disabled = true
+script = ExtResource("8_4f0cv")
+recipe = ExtResource("9_01dcu")
+
+[node name="Item" type="Control" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Axe"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Axe/Item"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_4ofpc")
+
+[node name="CountText" type="Label" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Axe/Item"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.0
+offset_right = -2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_hh3ii")
+horizontal_alignment = 2
+
+[node name="Shovel" type="Button" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("5_2pvji")
+disabled = true
+script = ExtResource("8_4f0cv")
+recipe = ExtResource("13_de53e")
+
+[node name="Item" type="Control" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Shovel"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Shovel/Item"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_qsqls")
+
+[node name="CountText" type="Label" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Shovel/Item"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.0
+offset_right = -2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_hh3ii")
+horizontal_alignment = 2
+
+[node name="Pickaxe" type="Button" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("5_2pvji")
+disabled = true
+script = ExtResource("8_4f0cv")
+recipe = ExtResource("14_77iju")
+
+[node name="Item" type="Control" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Pickaxe"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Pickaxe/Item"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_ugnh0")
+
+[node name="CountText" type="Label" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Pickaxe/Item"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.0
+offset_right = -2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_hh3ii")
+horizontal_alignment = 2
+
+[node name="Tab 2" type="Panel" parent="InventoryWindow/WindowContents/Right/CraftingMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 44.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Grass" type="Button" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("5_2pvji")
+disabled = true
+script = ExtResource("8_4f0cv")
+recipe = ExtResource("15_4i31a")
+
+[node name="Item" type="Control" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 2/VBoxContainer/HBoxContainer/Grass"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 2/VBoxContainer/HBoxContainer/Grass/Item"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("16_mmhnc")
+
+[node name="CountText" type="Label" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 2/VBoxContainer/HBoxContainer/Grass/Item"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.0
+offset_right = -2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_hh3ii")
+horizontal_alignment = 2
+
+[node name="Stone" type="Button" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("5_2pvji")
+disabled = true
+script = ExtResource("8_4f0cv")
+recipe = ExtResource("15_maveb")
+
+[node name="Item" type="Control" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 2/VBoxContainer/HBoxContainer/Stone"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 2/VBoxContainer/HBoxContainer/Stone/Item"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("16_jxpsi")
+
+[node name="CountText" type="Label" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 2/VBoxContainer/HBoxContainer/Stone/Item"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.0
+offset_right = -2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_hh3ii")
+horizontal_alignment = 2
+
+[node name="Tab 3" type="Panel" parent="InventoryWindow/WindowContents/Right/CraftingMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 44.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer"]
+layout_mode = 2
+
+[node name="Wooden Chest" type="Button" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer1"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("5_2pvji")
+disabled = true
+script = ExtResource("8_4f0cv")
+recipe = ExtResource("22_vxs2k")
+
+[node name="Item" type="Control" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer1/Wooden Chest"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer1/Wooden Chest/Item"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -20.0
+offset_right = 8.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("23_4u6is")
+
+[node name="CountText" type="Label" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer1/Wooden Chest/Item"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.0
+offset_right = -2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_hh3ii")
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer"]
+layout_mode = 2
+
+[node name="Furnace" type="Button" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("5_2pvji")
+disabled = true
+script = ExtResource("8_4f0cv")
+recipe = ExtResource("19_q2bq4")
+
+[node name="Item" type="Control" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer2/Furnace"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer2/Furnace/Item"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_jl3b7")
+
+[node name="CountText" type="Label" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer2/Furnace/Item"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.0
+offset_right = -2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_hh3ii")
+horizontal_alignment = 2
+
+[node name="Drill" type="Button" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("5_2pvji")
+disabled = true
+script = ExtResource("8_4f0cv")
+recipe = ExtResource("22_yeh55")
+
+[node name="Item" type="Control" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer2/Drill"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer2/Drill/Item"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 8.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_5y33a")
+
+[node name="CountText" type="Label" parent="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer2/Drill/Item"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.0
+offset_right = -2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_hh3ii")
+horizontal_alignment = 2
+
+[node name="Tab 4" type="Panel" parent="InventoryWindow/WindowContents/Right/CraftingMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 44.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Extension" type="Control" parent="InventoryWindow/WindowContents/Right"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 1
+
+[node name="Hotbar" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -58.0
+offset_right = 200.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_2pvji")
+
+[node name="MiningProgress" parent="Hotbar" instance=ExtResource("15_h2i4e")]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = -12.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_vertical = 1
+
+[node name="Slots" type="HBoxContainer" parent="Hotbar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -20.0
+offset_right = 196.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HotbarSlot1" parent="Hotbar/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="HotbarSlot2" parent="Hotbar/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="HotbarSlot3" parent="Hotbar/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="HotbarSlot4" parent="Hotbar/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="HotbarSlot5" parent="Hotbar/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="HotbarSlot6" parent="Hotbar/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="HotbarSlot7" parent="Hotbar/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="HotbarSlot8" parent="Hotbar/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="HotbarSlot9" parent="Hotbar/Slots" instance=ExtResource("5_d0a38")]
+layout_mode = 2
+
+[node name="SelectedSlot" type="NinePatchRect" parent="Hotbar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -27.0
+offset_right = -149.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_yqt8p")
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+
+[node name="DraggingSlot" parent="." instance=ExtResource("5_d0a38")]
+z_index = 100
+z_as_relative = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h27dc")
+
+[connection signal="closed" from="InventoryWindow" to="." method="_on_window_closed"]
+[connection signal="opened" from="InventoryWindow" to="." method="_on_window_opened"]
+[connection signal="pressed" from="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Axe" to="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Axe" method="_on_pressed"]
+[connection signal="pressed" from="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Shovel" to="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Shovel" method="_on_pressed"]
+[connection signal="pressed" from="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Pickaxe" to="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 1/VBoxContainer/HBoxContainer/Pickaxe" method="_on_pressed"]
+[connection signal="pressed" from="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 2/VBoxContainer/HBoxContainer/Grass" to="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 2/VBoxContainer/HBoxContainer/Grass" method="_on_pressed"]
+[connection signal="pressed" from="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 2/VBoxContainer/HBoxContainer/Stone" to="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 2/VBoxContainer/HBoxContainer/Stone" method="_on_pressed"]
+[connection signal="pressed" from="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer1/Wooden Chest" to="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer1/Wooden Chest" method="_on_pressed"]
+[connection signal="pressed" from="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer2/Furnace" to="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer2/Furnace" method="_on_pressed"]
+[connection signal="pressed" from="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer2/Drill" to="InventoryWindow/WindowContents/Right/CraftingMenu/Tab 3/VBoxContainer/HBoxContainer2/Drill" method="_on_pressed"]
+
+[editable path="InventoryWindow"]

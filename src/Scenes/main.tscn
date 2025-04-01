@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgenqbasx1asg"]
+
+[ext_resource type="PackedScene" uid="uid://bt5mfh5glnnq" path="res://Scenes/world.tscn" id="1_kctyp"]
+[ext_resource type="Script" path="res://Scripts/world_manager.gd" id="1_ydef6"]
+[ext_resource type="PackedScene" uid="uid://bwcmy10x08tqv" path="res://Scenes/loading_screen.tscn" id="3_sjqyu"]
+[ext_resource type="PackedScene" uid="uid://durc8qla8b4kc" path="res://Scenes/UI/ui.tscn" id="4_u7us2"]
+
+[node name="Main" type="CanvasLayer"]
+metadata/use_tile_selector = true
+
+[node name="World" type="SubViewportContainer" parent="." node_paths=PackedStringArray("terrain", "player", "inventory", "settings_window", "pause_menu", "loading_screen") groups=["game_sub_viewport_container"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 5
+script = ExtResource("1_ydef6")
+terrain = NodePath("SubViewport/World/Terrain")
+player = NodePath("SubViewport/World/Player")
+inventory = NodePath("../ScaledUI/SubViewport/UI/Inventory")
+settings_window = NodePath("../ScaledUI/SubViewport/UI/SettingsWindow")
+pause_menu = NodePath("../ScaledUI/SubViewport/UI/PauseMenu")
+loading_screen = NodePath("../LoadingScreen")
+
+[node name="SubViewport" type="SubViewport" parent="World"]
+transparent_bg = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(384, 216)
+render_target_update_mode = 4
+
+[node name="World" parent="World/SubViewport" instance=ExtResource("1_kctyp")]
+scale = Vector2(1, 1)
+
+[node name="Terrain" parent="World/SubViewport/World" index="0" node_paths=PackedStringArray("world_manager")]
+world_manager = NodePath("../../..")
+
+[node name="Player" parent="World/SubViewport/World" index="1" node_paths=PackedStringArray("world_manager")]
+world_manager = NodePath("../../..")
+
+[node name="ScaledUI" type="SubViewportContainer" parent="." groups=["ui_sub_viewport_container"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 2
+
+[node name="SubViewport" type="SubViewport" parent="ScaledUI"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(960, 540)
+render_target_update_mode = 4
+
+[node name="UI" parent="ScaledUI/SubViewport" instance=ExtResource("4_u7us2")]
+
+[node name="PauseMenu" parent="ScaledUI/SubViewport/UI" index="2" node_paths=PackedStringArray("world_manager")]
+world_manager = NodePath("../../../../World")
+
+[node name="LoadingScreen" parent="." instance=ExtResource("3_sjqyu")]
+
+[editable path="World/SubViewport/World"]
+[editable path="ScaledUI/SubViewport/UI"]

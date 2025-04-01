@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3 uid="uid://k12dsgh2re8s"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Windows/main_menu.gd" id="1_n6cpe"]
+[ext_resource type="PackedScene" uid="uid://bwcmy10x08tqv" path="res://Scenes/loading_screen.tscn" id="2_8rvga"]
+[ext_resource type="PackedScene" uid="uid://wt0nfyd3y757" path="res://Scenes/UI/MainMenu/main_menu_windows.tscn" id="3_7skoe"]
+
+[sub_resource type="Animation" id="Animation_srlr5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.25]
+}
+
+[sub_resource type="Animation" id="Animation_l6jon"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [0.5, 0.25]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [0.5, 0.25]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1h1at"]
+_data = {
+"RESET": SubResource("Animation_srlr5"),
+"start": SubResource("Animation_l6jon")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n6cpe")
+
+[node name="LoadingScreen" parent="." instance=ExtResource("2_8rvga")]
+layout_mode = 1
+
+[node name="Logo" parent="LoadingScreen" index="1"]
+anchors_preset = -1
+anchor_top = 0.25
+anchor_bottom = 0.25
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LoadingScreen/Logo" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_1h1at")
+}
+
+[node name="ScaledUI" type="SubViewportContainer" parent="." groups=["ui_sub_viewport_container"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 2
+
+[node name="SubViewport" type="SubViewport" parent="ScaledUI"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(960, 540)
+render_target_update_mode = 4
+
+[node name="MainMenuWindows" parent="ScaledUI/SubViewport" instance=ExtResource("3_7skoe")]
+
+[node name="CreateWorldWindow" parent="ScaledUI/SubViewport/MainMenuWindows" index="2"]
+new_inventory = null
+
+[connection signal="animation_finished" from="LoadingScreen/Logo/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="ScaledUI/SubViewport/MainMenuWindows/MainMenu/WindowContents/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ScaledUI/SubViewport/MainMenuWindows/MainMenu/WindowContents/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ScaledUI/SubViewport/MainMenuWindows/MainMenu/WindowContents/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+
+[editable path="LoadingScreen"]
+[editable path="ScaledUI/SubViewport/MainMenuWindows"]
+[editable path="ScaledUI/SubViewport/MainMenuWindows/MainMenu"]

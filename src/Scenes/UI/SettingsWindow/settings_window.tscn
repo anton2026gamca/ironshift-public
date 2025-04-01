@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=3 uid="uid://8qlur671p7bk"]
+
+[ext_resource type="PackedScene" uid="uid://d4l7vu5pjodj1" path="res://Scenes/UI/ui_window.tscn" id="1_hsf47"]
+[ext_resource type="Script" path="res://Scripts/UI/Windows/Settings/settings_window.gd" id="2_b73fi"]
+[ext_resource type="Texture2D" uid="uid://bot50ayhcx1wm" path="res://Sprites/UI/icons.png" id="3_11uvs"]
+[ext_resource type="Script" path="res://Scripts/UI/Windows/Settings/ui_scale_slider.gd" id="3_vxvg4"]
+[ext_resource type="Theme" uid="uid://b8g7cptiggoa" path="res://theme.tres" id="4_tho2q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr3d0"]
+atlas = ExtResource("3_11uvs")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tqam"]
+atlas = ExtResource("3_11uvs")
+region = Rect2(147, 3, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svg2g"]
+atlas = ExtResource("3_11uvs")
+region = Rect2(192, 0, 16, 16)
+
+[node name="SettingsWindow" instance=ExtResource("1_hsf47")]
+script = ExtResource("2_b73fi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowContents" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UIScaleSlider" type="HBoxContainer" parent="WindowContents/VBoxContainer" index="0"]
+layout_mode = 2
+script = ExtResource("3_vxvg4")
+min_value = 1
+max_value = 3
+
+[node name="WindowIcon" type="TextureRect" parent="WindowContents/VBoxContainer/UIScaleSlider" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_dr3d0")
+stretch_mode = 2
+
+[node name="ScaleIcon" type="TextureRect" parent="WindowContents/VBoxContainer/UIScaleSlider" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_6tqam")
+stretch_mode = 2
+
+[node name="Slider" type="HSlider" parent="WindowContents/VBoxContainer/UIScaleSlider" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 3.0
+value = 1.0
+
+[node name="SpinBox" type="SpinBox" parent="WindowContents/VBoxContainer/UIScaleSlider" index="3"]
+layout_mode = 2
+theme = ExtResource("4_tho2q")
+min_value = 1.0
+max_value = 3.0
+value = 1.0
+
+[node name="GameScaleSlider" type="HBoxContainer" parent="WindowContents/VBoxContainer" index="1"]
+layout_mode = 2
+script = ExtResource("3_vxvg4")
+min_value = 3
+max_value = 7
+
+[node name="GameIcon" type="TextureRect" parent="WindowContents/VBoxContainer/GameScaleSlider" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_svg2g")
+stretch_mode = 2
+
+[node name="ScaleIcon" type="TextureRect" parent="WindowContents/VBoxContainer/GameScaleSlider" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_6tqam")
+stretch_mode = 2
+
+[node name="Slider" type="HSlider" parent="WindowContents/VBoxContainer/GameScaleSlider" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 3.0
+max_value = 7.0
+value = 3.0
+
+[node name="SpinBox" type="SpinBox" parent="WindowContents/VBoxContainer/GameScaleSlider" index="3"]
+layout_mode = 2
+theme = ExtResource("4_tho2q")
+min_value = 3.0
+max_value = 7.0
+value = 3.0
+
+[connection signal="changed" from="WindowContents/VBoxContainer/UIScaleSlider" to="." method="_on_ui_scale_slider_changed"]
+[connection signal="drag_ended" from="WindowContents/VBoxContainer/UIScaleSlider/Slider" to="WindowContents/VBoxContainer/UIScaleSlider" method="_on_slider_drag_ended"]
+[connection signal="drag_started" from="WindowContents/VBoxContainer/UIScaleSlider/Slider" to="WindowContents/VBoxContainer/UIScaleSlider" method="_on_slider_drag_started"]
+[connection signal="value_changed" from="WindowContents/VBoxContainer/UIScaleSlider/SpinBox" to="WindowContents/VBoxContainer/UIScaleSlider" method="_on_spin_box_value_changed"]
+[connection signal="changed" from="WindowContents/VBoxContainer/GameScaleSlider" to="." method="_on_game_scale_slider_changed"]
+[connection signal="drag_ended" from="WindowContents/VBoxContainer/GameScaleSlider/Slider" to="WindowContents/VBoxContainer/GameScaleSlider" method="_on_slider_drag_ended"]
+[connection signal="drag_started" from="WindowContents/VBoxContainer/GameScaleSlider/Slider" to="WindowContents/VBoxContainer/GameScaleSlider" method="_on_slider_drag_started"]
+[connection signal="value_changed" from="WindowContents/VBoxContainer/GameScaleSlider/SpinBox" to="WindowContents/VBoxContainer/GameScaleSlider" method="_on_spin_box_value_changed"]

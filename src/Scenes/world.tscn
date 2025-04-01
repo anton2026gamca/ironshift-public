@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt5mfh5glnnq"]
+
+[ext_resource type="PackedScene" uid="uid://5xcnbrsfrv64" path="res://Scenes/Terrain/terrain.tscn" id="1_5bson"]
+[ext_resource type="PackedScene" uid="uid://dkarefu6gdslp" path="res://Scenes/Player/player.tscn" id="2_jg0rh"]
+
+[node name="World" type="Node2D"]
+y_sort_enabled = true
+scale = Vector2(5, 5)
+
+[node name="Terrain" parent="." instance=ExtResource("1_5bson")]
+scale = Vector2(1, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_jg0rh")]
+scale = Vector2(1, 1)

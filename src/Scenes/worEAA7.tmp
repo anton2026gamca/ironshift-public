@@ -1,0 +1,114 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgenqbasx1asg"]
+
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="1_eh7vc"]
+[ext_resource type="Texture2D" uid="uid://yu60k1swe40p" path="res://Sprites/grass.png" id="1_jc2ck"]
+[ext_resource type="Texture2D" uid="uid://djsjjd0sh0ba2" path="res://Sprites/biomes.png" id="4_esvkr"]
+[ext_resource type="Script" path="res://Scripts/terrain_generation.gd" id="4_kqavw"]
+[ext_resource type="Texture2D" uid="uid://ctb1c3ccnej5i" path="res://Sprites/water.png" id="6_seet8"]
+[ext_resource type="Script" path="res://Scripts/biome_map_generation.gd" id="7_vsr2r"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u3fl3"]
+texture = ExtResource("4_esvkr")
+texture_region_size = Vector2i(4, 4)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ag3fl"]
+tile_size = Vector2i(4, 4)
+sources/0 = SubResource("TileSetAtlasSource_u3fl3")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4wifr"]
+texture = ExtResource("1_jc2ck")
+1:1/0 = 0
+4:1/0 = 0
+7:1/0 = 0
+10:1/0 = 0
+13:1/0 = 0
+1:4/0 = 0
+4:4/0 = 0
+7:4/0 = 0
+10:4/0 = 0
+13:4/0 = 0
+1:7/0 = 0
+4:7/0 = 0
+7:7/0 = 0
+13:7/0 = 0
+1:10/0 = 0
+4:10/0 = 0
+7:10/0 = 0
+10:10/0 = 0
+13:10/0 = 0
+1:13/0 = 0
+4:13/0 = 0
+7:13/0 = 0
+10:13/0 = 0
+13:13/0 = 0
+1:16/0 = 0
+13:19/0 = 0
+10:19/0 = 0
+7:19/0 = 0
+4:19/0 = 0
+1:19/0 = 0
+1:22/0 = 0
+4:22/0 = 0
+7:22/0 = 0
+13:22/0 = 0
+1:25/0 = 0
+4:25/0 = 0
+7:25/0 = 0
+10:22/0 = 0
+10:7/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dh2yw"]
+texture = ExtResource("6_seet8")
+1:1/0 = 0
+4:1/0 = 0
+7:1/0 = 0
+10:1/0 = 0
+13:1/0 = 0
+1:4/0 = 0
+4:4/0 = 0
+7:4/0 = 0
+10:4/0 = 0
+1:7/0 = 0
+4:7/0 = 0
+7:7/0 = 0
+10:7/0 = 0
+13:7/0 = 0
+1:10/0 = 0
+4:10/0 = 0
+7:10/0 = 0
+10:10/0 = 0
+13:10/0 = 0
+1:13/0 = 0
+4:13/0 = 0
+7:13/0 = 0
+10:13/0 = 0
+13:13/0 = 0
+1:16/0 = 0
+13:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mdytc"]
+sources/1 = SubResource("TileSetAtlasSource_4wifr")
+sources/2 = SubResource("TileSetAtlasSource_dh2yw")
+
+[node name="World" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("1_eh7vc")
+
+[node name="BiomeMap" type="TileMapLayer" parent="."]
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_ag3fl")
+script = ExtResource("7_vsr2r")
+
+[node name="Terrain" type="Node2D" parent="."]
+scale = Vector2(5, 5)
+script = ExtResource("4_kqavw")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Terrain"]
+tile_set = SubResource("TileSet_mdytc")
